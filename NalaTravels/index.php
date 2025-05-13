@@ -6,7 +6,21 @@
     <title>Nala Travels</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    
+    <header>
+       <?php
+            include "assets/includes/header.inc.php";
+       ?> 
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
+
 </html>
