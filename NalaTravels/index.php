@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+isset($_SESSION) ?: session_start();
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 'home';
+}
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +27,25 @@
 <body class="julius-sans-one-regular">
     <header>
         <?php
-        include "assets/includes/header.inc.php";
+        $array =
+            [
+                "home",
+                "contact"
+            ];
+
+        for ($i = 0; $i < sizeof($array); $i++) {
+            if ($page == $array[$i]) {
+                include "assets/includes/header.inc.php";
+                break;
+            }
+        }
         ?>
     </header>
 
     <main>
-
+        <?php
+        include "assets/includes/$page.inc.php";
+        ?>
     </main>
 
     <footer>
