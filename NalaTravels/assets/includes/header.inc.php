@@ -4,7 +4,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <div class="bg-[#1E6091] w-full h-[20vh] flex justify-between">
-        <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-2.5">
+        <a href="index.php?page=home">
+            <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-2.5">
+        </a>
+        
         <div class="flex flex-col justify-around">
             <div>
                 <div class="boven flex content-center flex-wrap w-[80%]">
@@ -20,10 +23,10 @@
                             class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Excursies</button>
                     </div>
                 </div>
-
-                <div class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-around content-center flex-wrap w-[100%]">
-                    <input type="text" name="departure" id="departure" class="inputFields placeholder:text-center" placeholder="Vertrek">
-                    <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center" placeholder="Bestemming">
+                <div class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-around content-center flex-wrap">
+                    <input type="text" name="departure" id="departure" class="inputFields placeholder:text-center"
+                        placeholder="Vertrek">
+                    <input type="text" name="arrival" id="arrival" class="inputFields" placeholder="Bestemming">
                     <select name="groupSize" id="groupSize" class="inputFields">
                         <option value="def" selected="true" disabled="disabled" class="text-gray-500">Aantal personen</option>
                         <option value="one">1</option>
