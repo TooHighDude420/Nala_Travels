@@ -27,11 +27,7 @@ if (isset($_GET['page'])) {
 <body class="julius-sans-one-regular">
     <header>
         <?php
-        $array =
-            [
-                "home",
-                "contact"
-            ];
+        $array = ["home", "contact", "overons"];
 
         for ($i = 0; $i < sizeof($array); $i++) {
             if ($page == $array[$i]) {
@@ -40,6 +36,7 @@ if (isset($_GET['page'])) {
             }
         }
         ?>
+        <a href="index.php?page=overons" class="absolute right-0 top-0">over ons</a>
     </header>
 
     <main>
@@ -48,7 +45,7 @@ if (isset($_GET['page'])) {
         ?>
     </main>
 
-    <footer>
+    <footer class="absolute bottom-0 w-full">
         <?php
         include "assets/includes/footer.inc.php";
         ?>

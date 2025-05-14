@@ -4,7 +4,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <div class="bg-[#1E6091] w-full h-[20vh] flex justify-between">
-        <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-2.5">
+        <a href="index.php?page=home">
+            <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-2.5">
+        </a>
+        
         <div class="flex flex-col justify-around">
             <div>
                 <div class="boven">
