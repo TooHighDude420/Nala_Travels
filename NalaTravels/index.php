@@ -45,7 +45,7 @@ if (isset($_GET['page'])) {
         ?>
     </main>
 
-    <footer class="absolute bottom-0 w-full">
+    <footer class="sticky bottom-0 w-full">
         <?php
         include "assets/includes/footer.inc.php";
         ?>

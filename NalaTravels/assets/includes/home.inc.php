@@ -3,51 +3,54 @@
         <h1>Uitgelichte Locaties</h1>
         <div id="cardHolder" class="flex gap-x-[5%] justify-center pl-[0px]">
             <div>
-                <img src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
+                <img onclick="nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
-            
-            <div id="leftCard" class="h-[20vh] w-[15%]">
+
+            <div id="leftCardEnt" class="h-[20vh] w-[15%]">
                 <div id="leftHeader"
                     class="bg-[#76C893] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1>Indonesie</h1>
+                    <h1 id="leftTitle"></h1>
                 </div>
                 <div id="leftContent">
                     <div class="w-full h-[20vh] bg-black">
-                        <img src="assets/img/cards/Indonesie.png" alt="Indonesie" class="h-full w-full">
+                        <img id="leftImage" src="" alt="" class="h-full w-full">
                     </div>
                 </div>
             </div>
 
-            <div id="middleCard" class="h-[25vh] w-[15%]">
+            <div id="centerCardEnt" class="h-[25vh] w-[15%]">
                 <div id="middleHeader"
                     class="bg-[#52B69A] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1>Servië</h1>
+                    <h1 id="centerTitle"></h1>
                 </div>
                 <div id="middleContent">
                     <div class="w-full h-[20vh] bg-black">
-                        <img src="assets/img/cards/Servie.png" alt="Servie" class="h-full w-full">
+                        <img id="centerImage" src="" alt="" class="h-full w-full">
                     </div>
                 </div>
             </div>
 
 
 
-            <div id="rightCard" class="h-[25vh] w-[15%]">
+            <div id="rightCardEnt" class="h-[25vh] w-[15%]">
                 <div id="rightHeader"
                     class="bg-[#99D98C] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1>Spanje</h1>
+                    <h1 id="rightTitle"></h1>
                 </div>
                 <div id="rightContent">
                     <div class="w-full h-[20vh] bg-black">
-                        <img src="assets/img/cards/Spanje.png" alt="Spanje" class="h-full w-full">
+                        <img id="rightImage" src="" alt="" class="h-full w-full">
                     </div>
                 </div>
             </div>
 
             <div>
-                <img src="assets/img/cards/ArrowRight.png" alt="RightArrow">
+                <img onclick="prevCard()" src="assets/img/cards/ArrowRight.png" alt="RightArrow">
             </div>
 
         </div>
     </div>
+    <script src="assets/js/carrousel/Card.js"></script>
+    <script src="assets/js/carrousel/Carrousel.js"></script>
+    <script src="assets/js/carrousel/myWork.js"></script>
 </section>
