@@ -26,7 +26,7 @@
                 <div class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-around content-center flex-wrap">
                     <input type="text" name="departure" id="departure" class="inputFields placeholder:text-center"
                         placeholder="Vertrek">
-                    <input type="text" name="arrival" id="arrival" class="inputFields" placeholder="Bestemming">
+                    <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center" placeholder="Bestemming">
                     <select name="groupSize" id="groupSize" class="inputFields">
                         <option value="def" selected="true" disabled="disabled" class="text-gray-500">Aantal personen</option>
                         <option value="one">1</option>
