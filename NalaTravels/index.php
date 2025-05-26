@@ -25,7 +25,7 @@ if (isset($_GET['page'])) {
 </head>
 
 <body class="julius-sans-one-regular">
-    <header>
+    <header  class="sticky top-0">
         <?php
         $array = ["home", "contact", "overons"];
 
@@ -39,7 +39,7 @@ if (isset($_GET['page'])) {
         <a href="index.php?page=overons" class="absolute right-0 top-0">over ons</a>
     </header>
 
-    <main>
+    <main class="">
         <?php
         include "assets/includes/$page.inc.php";
         ?>
