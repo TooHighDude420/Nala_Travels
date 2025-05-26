@@ -8,3 +8,7 @@
     border-radius: 8px;
     height: 5vh;
 }
+
+.active {
+    border-width: 2px;
+}
