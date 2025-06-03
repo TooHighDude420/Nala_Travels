@@ -8,7 +8,7 @@
 
             <div id="leftCardEnt" class="h-[20vh] w-[15%]">
                 <div id="leftHeader"
-                    class="bg-[#76C893] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                     <h1 id="leftTitle"></h1>
                 </div>
                 <div id="leftContent">
@@ -20,7 +20,7 @@
 
             <div id="centerCardEnt" class="h-[25vh] w-[15%]">
                 <div id="middleHeader"
-                    class="bg-[#52B69A] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                     <h1 id="centerTitle"></h1>
                 </div>
                 <div id="middleContent">
@@ -34,7 +34,7 @@
 
             <div id="rightCardEnt" class="h-[25vh] w-[15%]">
                 <div id="rightHeader"
-                    class="bg-[#99D98C] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                     <h1 id="rightTitle"></h1>
                 </div>
                 <div id="rightContent">
@@ -70,7 +70,7 @@
             </div>
 
             <div id="dealCenterCardEnt" class="h-[25vh] w-[15%]">
-                <div id="middleHeader"
+                <div id="dealCenterHeader"
                     class="bg-[#52B69A] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                     <h1 id="dealCenterTitle"></h1>
                 </div>
@@ -84,7 +84,7 @@
 
 
             <div id="dealRightCardEnt" class="h-[25vh] w-[15%]">
-                <div id="rightHeader"
+                <div id="dealRightHeader"
                     class="bg-[#99D98C] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                     <h1 id="dealRightTitle"></h1>
                 </div>
@@ -110,7 +110,7 @@
     <script src="assets/js/carrousel/Carrousel.js"></script>
     <script src="assets/js/carrousel/myWork.js"></script>
     <script>
-        const test = new CarrMain(["leftCardEnt", "leftTitle", "leftImage"], ["centerCardEnt", "centerTitle", "centerImage"], ["rightCardEnt", "rightTitle", "rightImage"]);
+        const test = new CarrMain(["leftCardEnt", "leftTitle", "leftImage", "leftHeader"], ["centerCardEnt", "centerTitle", "centerImage", "middleHeader"], ["rightCardEnt", "rightTitle", "rightImage", "rightHeader"]);
         test.go(
             testArray = [
                 {
@@ -130,7 +130,7 @@
             ]
         );
 
-        const testDeals = new CarrMain(["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage"], ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage"], ["dealRightCardEnt", "dealRightTitle", "dealRightImage"]);
+        const testDeals = new CarrMain(["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage", "dealLeftHeader"], ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader"], ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader"]);
         testDeals.go(
             testArray = [
                 {
