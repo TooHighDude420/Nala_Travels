@@ -3,23 +3,23 @@
     <!-- scripts for components -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    <div class="bg-[#1E6091] w-full h-[20vh] flex justify-between">
+    <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
         <a href="index.php?page=home">
-            <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-2.5">
+            <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
         </a>
         
         <div class="flex flex-col justify-around">
             <div>
                 <div class="boven flex content-center flex-wrap w-[80%]">
-                    <div class="flex ">
-                        <button type="button"
-                            class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijven</button>
-                        <button type="button"
+                    <div class="flex">
+                        <button type="button" id="verblijven" onclick="staysActive()"
+                            class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">Verblijven</button>
+                        <button type="button" id="vluchten" onclick="flightsActive()"
                             class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Vluchten</button>
-                        <button type="button"
+                        <button type="button" id="verblijfVlucht" onclick="combiActive()"
                             class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijf
                             + Vlucht</button>
-                        <button type="button"
+                        <button type="button" id="excursie" onclick="excursionActive()"
                             class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Excursies</button>
                     </div>
                 </div>
@@ -48,7 +48,6 @@
                             placeholder="Select date">
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="test size-24">
@@ -56,3 +55,4 @@
         </div>
     </div>
 </section>
+<script src="assets/js/searchSystem/searchMain.js"></script>
