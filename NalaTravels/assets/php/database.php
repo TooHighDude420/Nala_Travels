@@ -25,4 +25,24 @@ class Database
 
         return $res;
     }
+
+    public function insertUser($username, $password, $role)
+    {
+        $hashedPass = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = Conn::$conn->prepare("INSERT INTO Users (`Username`, `Password`, `RoleID`) VALUES (:username, :password, :role)");
+        $stmt->bindParam("username", $username);
+        $stmt->bindParam("password", $hashedPass);
+        $stmt->bindParam("role", $role);
+        $stmt->execute();
+    }
+
+    public function login($username)
+    {
+        $sth = Conn::$conn->prepare("SELECT username, password, RoleID FROM users WHERE username = :user");
+        $sth->bindParam('user', $username, PDO::PARAM_STR);
+        $sth->execute();
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
 }
