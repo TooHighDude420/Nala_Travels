@@ -40,7 +40,7 @@ if (isset($_GET['page'])) {
             }
         }
         ?>
-        <a href="index.php?page=overons" class="absolute right-0 top-0">over ons</a>
+
     </header>
 
     <main class="">
