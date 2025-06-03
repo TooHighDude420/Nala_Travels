@@ -5,8 +5,13 @@ class Carroussel {
     activeCards = [];
 
     constructor(data, size) {
+        var colors = [
+            "bg-[#76C893]",
+            "bg-[#52B69A]",
+            "bg-[#99D98C]"
+        ]
         for (var i = 0; i < data.length; i++) {
-            this.cardList.push(new Card(data[i].Title, data[i].Img, i));
+            this.cardList.push(new Card(data[i].Title, data[i].Img, i, colors[Math.floor(Math.random() * 2)]));
         }
 
         this.size = size;
@@ -16,6 +21,24 @@ class Carroussel {
             this.activeCards[i] = this.cardList.at(i);
             this.index++;
         }
+    }
+
+    nextColor(leftCard, centerCard, rightCard){
+        leftCard.Header.classList.add(this.activeCards[0].color);
+        leftCard.Color = this.activeCards[0].color;
+        centerCard.Header.classList.add(this.activeCards[1].color);
+        centerCard.Color = this.activeCards[1].color;
+        rightCard.Header.classList.add(this.activeCards[2].color);
+        rightCard.Color = this.activeCards[2].color;
+    }
+
+    prevColor(leftCard, centerCard, rightCard){
+        leftCard.Header.classList.add(this.activeCards[2].color);
+        leftCard.Color = this.activeCards[2].color;
+        centerCard.Header.classList.add(this.activeCards[1].color);
+        leftCard.Color = this.activeCards[1].color;
+        rightCard.Header.classList.add(this.activeCards[0].color);
+        leftCard.Color = this.activeCards[0].color;
     }
 
     getActiveCards() {

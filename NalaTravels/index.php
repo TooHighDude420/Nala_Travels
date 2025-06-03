@@ -2,6 +2,10 @@
 <html lang="en">
 
 <?php
+require("assets/php/database.php");
+
+$database = new Database();
+
 
 isset($_SESSION) ?: session_start();
 
@@ -27,7 +31,7 @@ if (isset($_GET['page'])) {
 <body class="julius-sans-one-regular">
     <header  class="sticky top-0">
         <?php
-        $array = ["home", "contact", "overons"];
+        $array = ["home", "contact", "overons", "search"];
 
         for ($i = 0; $i < sizeof($array); $i++) {
             if ($page == $array[$i]) {
