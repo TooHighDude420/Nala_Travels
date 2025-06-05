@@ -15,6 +15,9 @@ if (isset($_GET['page'])) {
     $page = 'home';
 }
 
+$headerArray = ["home", "contact", "overons", "search"];
+$footerArray = ["home", "contact", "overons", "search", "login", "register"];
+
 ?>
 
 <head>
@@ -29,12 +32,10 @@ if (isset($_GET['page'])) {
 </head>
 
 <body class="julius-sans-one-regular">
-    <header  class="sticky top-0">
+    <header class="sticky top-0">
         <?php
-        $array = ["home", "contact", "overons", "search"];
-
-        for ($i = 0; $i < sizeof($array); $i++) {
-            if ($page == $array[$i]) {
+        for ($i = 0; $i < sizeof($headerArray); $i++) {
+            if ($page == $headerArray[$i]) {
                 include "assets/includes/header.inc.php";
                 break;
             }
@@ -51,7 +52,13 @@ if (isset($_GET['page'])) {
 
     <footer class="sticky bottom-0 w-full">
         <?php
-        include "assets/includes/footer.inc.php";
+        for ($i = 0; $i < sizeof($footerArray); $i++) {
+            if ($page == $footerArray[$i]) {
+                include "assets/includes/footer.inc.php";
+                break;
+            }
+        }
+
         ?>
     </footer>
 </body>

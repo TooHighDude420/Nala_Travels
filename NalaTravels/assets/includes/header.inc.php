@@ -26,7 +26,7 @@
                 <form action="assets/php/search.php" method="post"
                     class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-evenly content-center flex-wrap">
                     <input type="text" name="departure" id="departure"
-                        class="inputFields placeholder:text-center hidden" placeholder="Vertrek">
+                        class="inputFields placeholder:text-center" placeholder="Vertrek">
                     <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center"
                         placeholder="Bestemming">
                     <select name="groupSize" id="groupSize" class="inputFields">
@@ -49,7 +49,7 @@
                         </div>
                         <input datepicker id="default-datepicker" type="text"
                             class="h-[5vh] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+                            placeholder="Select date" name="date">
                     </div>
                     <button type="submit">
                         <div

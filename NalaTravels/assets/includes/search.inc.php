@@ -2,10 +2,16 @@
 $departure = $_GET["d"];
 $destination = $_GET["a"];
 $people = $_GET["p"];
+$date = $_GET["dt"];
 ?>
 
 <div>
-    <p><?php echo "search results for DEP: $departure DES:$destination GRP:$people" ?></p>
+    <p>
+        <?php
+            echo "search results for DEP: $departure DES:$destination GRP:$people Date:$date"
+        ?>
+    </p>
+
     <?php
 
     $trips = $database->search($departure, $destination, $people);
@@ -19,9 +25,13 @@ $people = $_GET["p"];
         $des = $trip["Destination"];
         $price = $trip["Price"];
         $free = $trip["FreeSeats"];
+        $img = $trip["ImageLoc"];
 
         echo "
         <div class='flex flex-col flex-wrap'>
+            <div>
+                <img src='assets/img/cards/$img' alt='$img'>
+            </div>
             <div class='flex content-center items-center justify-center'>
                 <p>$dep</p>
                 <img src='assets/img/tickets/travel.svg' alt='arrow' class='h-[10vh] w-[20%]'>
@@ -29,7 +39,7 @@ $people = $_GET["p"];
             </div>
 
             <div class='flex justify-end'>
-                <p>$price | $free</p>
+                <p>€$price p.p | $free free seats</p>
             </div>
             
         </div>
