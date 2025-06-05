@@ -12,3 +12,7 @@
 .active {
     border-width: 2px;
 }
+
+.login{
+    background-image: url(../img/login/bg.png);
+}
