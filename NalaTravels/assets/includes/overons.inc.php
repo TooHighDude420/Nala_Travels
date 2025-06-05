@@ -1,6 +1,6 @@
 <section>
-    <div class="flex left h-[90vh] w-[100%] mt-10 justify-evenly">
-        <div class="bg-[#76C893] h-[80vh] w-[30%] rounded-[10px]">
+    <div class="flex left h-[75vh] w-[100%] mt-10 justify-center ">
+        <div class="bg-[#76C893] h-[65vh] w-[30%] rounded-[10px] mr-5">
             <h1 class="ml-5 mt-3">
                 Over ons
             </h1>
@@ -14,11 +14,8 @@
                 onvergetelijk maken. Of je nu houdt van natuur, cultuur of actie – bij ons vind je de perfecte excursie.
                 Ontdek, beleef en geniet met ons reisbureau!
             </p>
-            <h2 class="ml-5 mb-5">
-                Meer zien, meer beleven – excursies die je bijblijven.
-            </h2>
         </div>
-        <div class="right  w-[30%]">
+        <div class="right  w-[30%] ml-5">
             <div class="contact bg-[#52B69A] h-[20vh] rounded-[10px]">
                 <h1 class=" ml-5 pt-3">
                     Contact
@@ -32,13 +29,33 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <h1>
-
+            <div class="bg-[#99D98C] mt-10 rounded-[10px]">
+                <h1 class="pt-3 ml-5">
+                    geaffilieerd
                 </h1>
-                <p>
-
-                </p>
+                <ul class="mt-2 ml-5 mr-5 pb-5">
+                    <li>
+                       - KLM
+                    </li>
+                    <li>
+                       - Icelandair
+                    </li>
+                    <li>
+                       - China Southern
+                    </li>
+                    <li>
+                       - Aeromexico
+                    </li>
+                    <li>
+                       - AirSERBIA
+                    </li>
+                    <li>
+                       - Vueling
+                    </li>
+                    <li>
+                       - Xiamen Airlines
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
