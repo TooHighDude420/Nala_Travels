@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .julius-sans-one-regular {
     font-family: "Julius Sans One", sans-serif;
     font-weight: 400;
@@ -14,11 +13,11 @@
     border-width: 2px;
 }
 
-.login{
+.login {
     background-image: url(../img/login/bg.png);
-=======
-.inputFields{
+}
+
+.inputFields {
     border-radius: 2%;
     height: 5vh;
->>>>>>> Laura
 }
