@@ -13,6 +13,11 @@
     border-width: 2px;
 }
 
-.login{
+.login {
     background-image: url(../img/login/bg.png);
+}
+
+.inputFields {
+    border-radius: 2%;
+    height: 5vh;
 }
