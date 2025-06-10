@@ -26,7 +26,7 @@
                 <form action="assets/php/search.php" method="post"
                     class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-evenly content-center flex-wrap">
                     <input type="text" name="departure" id="departure"
-                        class="inputFields placeholder:text-center hidden" placeholder="Vertrek">
+                        class="inputFields placeholder:text-center" placeholder="Vertrek">
                     <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center"
                         placeholder="Bestemming">
                     <select name="groupSize" id="groupSize" class="inputFields">
