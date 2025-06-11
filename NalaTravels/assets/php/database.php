@@ -9,7 +9,7 @@ class Database
         Conn::makeCon();
     }
 
-    public function search(string $departure, string $destination, string $grp)
+    public function search(string $departure = '', string $destination ='', string $grp = '2')
     {
         $stmt = Conn::$conn->prepare("
             SELECT trip.TripID, flights.Destination, flights.Departure, flights.FreeSeats, flights.Price, countries.ImageLoc, countries.CountryDisc
