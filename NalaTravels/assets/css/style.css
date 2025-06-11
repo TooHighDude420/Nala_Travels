@@ -15,9 +15,14 @@
 
 .login {
     background-image: url(../img/login/bg.png);
+    background-size: cover;
 }
 
 .inputFields {
     border-radius: 2%;
     height: 5vh;
+}
+
+.bg-col-login{
+    background-color: rgba(52, 160, 164, 0.5);
 }
