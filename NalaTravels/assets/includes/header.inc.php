@@ -3,7 +3,14 @@
     <!-- scripts for components -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <?php
-    if ($_GET["page"] == "dashboard" && $_SESSION["role"] == 2) {
+    
+    if (isset($_GET["page"])){
+        $pagep = $_GET["page"];
+    } else {
+        $pagep = "home";
+    }
+
+    if ($pagep == "dashboard" && $_SESSION["role"] == 2) {
         echo /*html*/ '
         <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                 <a href="index.php?page=home">
