@@ -14,9 +14,9 @@ class Database
         $stmt = Conn::$conn->prepare("
             SELECT trip.TripID, flights.Destination, flights.Departure, flights.FreeSeats, flights.Price, countries.ImageLoc, countries.CountryDisc
             FROM trip 
-            INNER JOIN flights ON trip.FlightID=flights.FlightID
+            INNER JOIN flights ON trip.FlightID=flights.FlightID 
             INNER JOIN countries ON flights.Destination=countries.Airport
-            WHERE Destination=:d AND Departure=:a AND FreeSeats>:grp");
+            WHERE Destination=:a OR Departure=:d AND FreeSeats>:grp");
         $stmt->bindParam("d", $departure);
         $stmt->bindParam("a", $destination);
         $stmt->bindParam("grp", $grp);
