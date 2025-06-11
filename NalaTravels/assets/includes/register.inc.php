@@ -9,7 +9,7 @@
         <form action="assets/php/register.php" method="post"
             class="h-full w-full flex flex-col justify-around items-center">
             <div>
-                <label for="username">Username</label>
+                <label class="text-white" for="username">Username</label>
                 <input type="text" name="username" placeholder="Username">
             </div>
             <div>
