@@ -3,7 +3,6 @@ require("conn.php");
 
 class Database
 {
-
     public function __construct()
     {
         Conn::makeCon();
@@ -16,8 +15,9 @@ class Database
             FROM trip 
             INNER JOIN flights ON trip.FlightID=flights.FlightID 
             INNER JOIN countries ON flights.Destination=countries.Airport
-            WHERE Destination=:a OR Departure=:d AND FreeSeats>:grp");
+            WHERE (Destination=:a OR Departure=:d) OR CountryName=:dalt AND FreeSeats>:grp");
         $stmt->bindParam("d", $departure);
+        $stmt->bindParam("dalt", $destination);
         $stmt->bindParam("a", $destination);
         $stmt->bindParam("grp", $grp);
         $stmt->execute();

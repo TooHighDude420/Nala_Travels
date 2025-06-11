@@ -4,12 +4,16 @@ $role = $_SESSION["role"];
 
 if (isset($role)) {
     switch ($role) {
-        case 1:
+        case 2:
             include "assets/includes/dashboard/customer.inc.php";
             break;
 
-        case 2:
+        case 1:
             include "assets/includes/dashboard/admin.inc.php";
+            break;
+
+        default:
+            include "assets/includes/dashboard/error.inc.php";
             break;
 
     }

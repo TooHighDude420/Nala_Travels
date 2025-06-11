@@ -1,1 +1,1 @@
-hallo welkom op home van het dashboard
+<a href="index.php?page=dashboard&sp=home">home</a>
