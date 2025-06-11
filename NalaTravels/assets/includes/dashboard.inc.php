@@ -1,4 +1,6 @@
 <?php
+isset($_SESSION) ? : session_start();
+
 $un = $_SESSION["username"];
 $role = $_SESSION["role"];
 

@@ -18,7 +18,7 @@ $date = $_GET["dt"];
 
     //var_dump($trips);
     
-    echo /*html*/ "<div class='flex flex-col content-center flex-wrap gap-y-[20px]'>";
+    echo "<div class='flex flex-col content-center flex-wrap gap-y-[20px]'>";
 
     foreach ($trips as $trip) {
         $dep = $trip["Departure"];
@@ -27,8 +27,36 @@ $date = $_GET["dt"];
         $free = $trip["FreeSeats"];
         $img = $trip["ImageLoc"];
 
-        echo /*html*/ "
-        <div class='p-5 bg-gray-200 h-[25-vh] w-[80%] rounded'>
+        if ($people != '') {
+            $totalPrice = $price * $people;
+
+            $data = [
+                $dep,
+                $des,
+                $totalPrice,
+                $free,
+                $img,
+                $people
+            ];
+
+            $json_data = json_encode($data);
+        } else {
+
+            $data = [
+                $dep,
+                $des,
+                $price,
+                $free,
+                $img,
+                $people
+            ];
+
+            $json_data = json_encode($data);
+        }
+
+        echo "
+        <form class='p-5 bg-gray-200 h-[25-vh] w-[80%] rounded' action='assets/php/checkLogin.php' method='post'>
+            <input name='data' value='$json_data' class='hidden'>
             <div class='flex'>
                 <div>
                     <img class='rounded h-[20vh] w-full' src='assets/img/cards/$img' alt='$img'>
@@ -39,17 +67,20 @@ $date = $_GET["dt"];
                             <img src='assets/img/tickets/travel.svg' alt='arrow' class='h-[10vh] w-[20%]'>
                         <p>$des</p>
                     </div>
-                    <div class='flex justify-end'>";
-                        if($people != ''){
-                            echo "<p>€" . $price * $people . " " . "| $free free seats</p>";    
+                    <div class='flex justify-around'>
+                        <button type='submit' class=''>
+                            boek nu!
+                        </button>";
+                        if ($people != '') {
+                            echo "<p>€ $totalPrice | $free free seats</p>";
                         } else {
                             echo "<p>€$price p.p | $free free seats</p>";
                         }
-                        echo /*html*/ "
+                        echo "
                     </div>
                 </div>
             </div>
-        </div>";
+        </form>";
     }
 
     echo "</div>";

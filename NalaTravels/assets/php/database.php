@@ -26,6 +26,70 @@ class Database
         return $res;
     }
 
+    public function bookFlight($username, $fName, $lName, $des, $dep)
+    {
+        $stmt = Conn::$conn->prepare("
+            INSERT INTO traveler (userID, Fname, Lname) VALUES (:userID, :fname, :lname);
+            INSERT INTO trips_travelers (travelerID, tripID) VALUES (:travelerID, :tripID);
+        ");
+        
+        $userID = $this->getUserID($username);
+        $flightID = $this->getFlightID($des, $dep);
+        $travelerID = $this->getTravelerID($fName, $lName, $userID);
+        $tripID = $this->getTripID($flightID);
+
+        $stmt->bindParam("userID", $userID);
+        $stmt->bindParam("travelerID", $travelerID);
+        $stmt->bindParam("tripID", $tripID);
+        $stmt->bindParam("fname", $fName);
+        $stmt->bindParam("lname", $lName);
+        $stmt->execute();
+    }
+
+    public function getTripID($flightID)
+    {
+        $stmt = Conn::$conn->prepare("SELECT tripID FROM trip WHERE flightID = :flightID;");
+        $stmt->bindParam("flightID", $flightID);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getTravelerID($fName, $lName, $userID)
+    {
+        $stmt = Conn::$conn->prepare("SELECT travelerID FROM traveler WHERE Fname=:fname AND Lname=:lname AND userID = :userID;");
+        $stmt->bindParam("userID", $userID);
+        $stmt->bindParam("fname", $fName);
+        $stmt->bindParam("lname", $lName);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getFlightID($des, $dep)
+    {
+        $stmt = Conn::$conn->prepare("SELECT flightID FROM flights WHERE Destination = :destination AND Departure = :departure;");
+        $stmt->bindParam("destination", $des);
+        $stmt->bindParam("departure", $dep);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getUserID($username)
+    {
+        $stmt = Conn::$conn->prepare("SELECT userID FROM users WHERE username = :username");
+        $stmt->bindParam("username", $username);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+
+    }
+
     public function insertUser($username, $password, $role)
     {
         $hashedPass = password_hash($password, PASSWORD_DEFAULT);

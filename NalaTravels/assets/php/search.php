@@ -1,4 +1,6 @@
 <?php
+isset($_SESSION) ? : session_start();
+
 $departure = $_POST["departure"];
 $destination = $_POST["arrival"];
 $people = $_POST["groupSize"];
