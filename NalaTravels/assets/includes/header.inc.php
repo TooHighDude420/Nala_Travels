@@ -11,7 +11,7 @@
     }
 
     if ($pagep == "dashboard" && $_SESSION["role"] == 2) {
-        echo /*html*/ '
+        echo '
         <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                 <a href="index.php?page=dashboard&sp=home">
                     <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
@@ -30,7 +30,7 @@
                 </form>
         </div>';
     } elseif ($pagep == "dashboard" && $_SESSION["role"] == 1) {
-        echo /*html*/ '
+        echo '
             <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                     <a href="index.php?page=dashboard&sp=home">
                         <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
@@ -57,7 +57,7 @@
                     </div>
             </div>';
     } else {
-        echo /*html*/ '
+        echo'
             <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                 <a href="index.php?page=home">
                     <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
