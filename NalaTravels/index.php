@@ -50,19 +50,18 @@ $footerArray = ["home", "contact", "overons", "search", "login", "register"];
 
     <main class="">
         <?php
-        include "assets/includes/$page.inc.php";
+            include "assets/includes/$page.inc.php";
         ?>
     </main>
 
     <footer class="sticky bottom-0 w-full">
         <?php
-        for ($i = 0; $i < sizeof($footerArray); $i++) {
-            if ($page == $footerArray[$i]) {
-                include "assets/includes/footer.inc.php";
-                break;
+            for ($i = 0; $i < sizeof($footerArray); $i++) {
+                if ($page == $footerArray[$i]) {
+                    include "assets/includes/footer.inc.php";
+                    break;
+                }
             }
-        }
-
         ?>
     </footer>
 </body>

@@ -3,34 +3,61 @@
     <!-- scripts for components -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <?php
-    if ($_GET["page"] == "dashboard" && $_SESSION["role"] == 2) {
-        echo /*html*/ '
+
+    if (isset($_GET["page"])) {
+        $pagep = $_GET["page"];
+    } else {
+        $pagep = "home";
+    }
+
+    if ($pagep == "dashboard" && $_SESSION["role"] == 2) {
+        echo '
         <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
-                <a href="index.php?page=home">
+                <a href="index.php?page=dashboard&sp=home">
                     <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
                 </a>
-                    <div class="flex">
-                        <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">
-                            Vluchten
-                        </button>
-                        <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                            Verblijven
-                        </button>
-                        <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                            Verblijf + Vlucht
-                        </button>
-                        <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                            Excursies
-                        </button> 
+                    <div class="flex content-center flex-wrap">
+                        <a type="button" href="index.php?page=dashboard&sp=bookings" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] h-fit">
+                            Boekingen
+                        </a>
+                        <a type="button" href="index.php?page=dashboard&sp=editprofile" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] h-fit">
+                            Profiel bijwerken
+                        </a>
                     </div>
                 
-                <div class="text-white flex mt-1">
-                    <a href="index.php?page=overons" class="mr-5">over ons</a>
-                    <a href="index.php?page=login" class="mr-5">login</a>
-                </div>
+                <form action="assets/php/logout.php">
+                    <button type="submit" class="mr-5">logout</button>
+                </form>
         </div>';
+    } elseif ($pagep == "dashboard" && $_SESSION["role"] == 1) {
+        echo '
+            <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
+                    <a href="index.php?page=dashboard&sp=home">
+                        <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
+                    </a>
+                        <div class="flex">
+                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">
+                                Vluchten wijzigen
+                            </button>
+                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Verblijven wijzigen
+                            </button>
+                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Trips maken
+                            </button>
+                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Excursies wijzigen
+                            </button> 
+                        </div>
+                    
+                    <div class="text-white flex mt-1">
+                        <form action="assets/php/logout.php">
+                            <button type="submit" class="mr-5">logout</button>
+                        </form>
+                    </div>
+            </div>';
     } else {
-        echo /*html*/ '
+        echo'
             <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                 <a href="index.php?page=home">
                     <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
