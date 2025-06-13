@@ -26,6 +26,15 @@ class Database
         return $res;
     }
 
+    /**
+     * bookFlight zorgt ervoor dat vluchten geboekt kunnen worden
+     * @param mixed $username
+     * @param mixed $fName
+     * @param mixed $lName
+     * @param mixed $des
+     * @param mixed $dep
+     * @return void
+     */
     public function bookFlight($username, $fName, $lName, $des, $dep)
     {
         $stmt = Conn::$conn->prepare("
