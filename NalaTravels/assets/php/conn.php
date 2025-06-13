@@ -6,9 +6,9 @@ class Conn
     public static function makeCon() :void
     {
         if (isset(Conn::$conn) == false) {
-            $servername = "mariadb";
+            $servername = "127.0.0.1";
             $username = "root";
-            $password = "root";
+            $password = "";
             $dbname = "Nala";
 
             try {
