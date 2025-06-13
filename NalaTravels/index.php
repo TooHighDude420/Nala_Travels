@@ -1,3 +1,8 @@
+<?php
+
+isset($_SESSION) ?: session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,6 @@ require("assets/php/database.php");
 $database = new Database();
 
 
-isset($_SESSION) ?: session_start();
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
