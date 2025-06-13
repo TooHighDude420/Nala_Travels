@@ -115,10 +115,41 @@
                         </form>
                     </div>
                 </div>
-                <div class="text-white flex mt-1">
-                    <a href="index.php?page=overons" class="mr-5">over ons</a>
-                    <a href="index.php?page=login" class="mr-5">login</a>
-                </div>
+                <form action="assets/php/search.php" method="post"
+                    class="onder bg-[#168AAD] h-[7vh] rounded-[3px] flex justify-evenly content-center flex-wrap">
+                    <input type="text" name="departure" id="departure"
+                        class="inputFields placeholder:text-center" placeholder="Vertrek">
+                    <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center"
+                        placeholder="Bestemming">
+                    <select name="groupSize" id="groupSize" class="inputFields">
+                        <option value="def" selected="true" disabled="disabled" class="text-gray-500">Aantal
+                            personen
+                        </option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                    <div class="relative w-[20%]">
+                        <div class="absolute top-[1.3vh] start-0 flex items-center ps-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                            </svg>
+                        </div>
+                        <input datepicker id="default-datepicker" type="text" name="date"
+                            class="h-[5vh] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date">
+                    </div>
+                    <button type="submit">
+                        <div
+                            class="bg-[#B5E48C] h-[35px] w-[35px] rounded flex flex-wrap content-center justify-center">
+                            <img src="assets/img/header/search.png" alt="search" class="h-[80%] w-[80%]] allign-center">
+                        </div>
+                    </button>
+                </form>
             </div>
         ';
     }
