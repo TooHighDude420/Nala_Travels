@@ -15,6 +15,10 @@
                     <div class="w-full h-[20vh] bg-black">
                         <img id="leftImage" src="" alt="" class="h-full w-full">
                     </div>
+                    <div class="flex justify-between">
+                        <p id="leftPrice"></p>
+                        <button>boek nu!</button>
+                    </div>
                 </div>
             </div>
 
@@ -26,6 +30,10 @@
                 <div id="middleContent">
                     <div class="w-full h-[20vh] bg-black">
                         <img id="centerImage" src="" alt="" class="h-full w-full">
+                    </div>
+                    <div class="flex justify-between">
+                        <p id="centerPrice"></p>
+                        <button>boek nu!</button>
                     </div>
                 </div>
             </div>
@@ -40,6 +48,10 @@
                 <div id="rightContent">
                     <div class="w-full h-[20vh] bg-black">
                         <img id="rightImage" src="" alt="" class="h-full w-full">
+                    </div>
+                    <div class="flex justify-between">
+                        <p id="rightPrice"></p>
+                        <button>boek nu!</button>
                     </div>
                 </div>
             </div>
@@ -66,6 +78,10 @@
                     <div class="w-full h-[20vh] bg-black">
                         <img id="dealLeftImage" src="" alt="" class="h-full w-full">
                     </div>
+                    <div class="flex justify-between">
+                        <p id="leftDealPrice"></p>
+                        <button>boek nu!</button>
+                    </div>
                 </div>
             </div>
 
@@ -77,6 +93,10 @@
                 <div id="middleContent">
                     <div class="w-full h-[20vh] bg-black">
                         <img id="dealCenterImage" src="" alt="" class="h-full w-full">
+                    </div>
+                    <div class="flex justify-between">
+                        <p id="centerDealPrice"></p>
+                        <button>boek nu!</button>
                     </div>
                 </div>
             </div>
@@ -91,6 +111,10 @@
                 <div id="dealRightContent">
                     <div class="w-full h-[20vh] bg-black">
                         <img id="dealRightImage" src="" alt="" class="h-full w-full">
+                    </div>
+                    <div class="flex justify-between">
+                        <p id="rightDealPrice"></p>
+                        <button>boek nu!</button>
                     </div>
                 </div>
             </div>
@@ -110,44 +134,20 @@
     <script src="assets/js/carrousel/Carrousel.js"></script>
     <script src="assets/js/carrousel/myWork.js"></script>
     <script>
-        const test = new CarrMain(["leftCardEnt", "leftTitle", "leftImage", "leftHeader"], ["centerCardEnt", "centerTitle", "centerImage", "middleHeader"], ["rightCardEnt", "rightTitle", "rightImage", "rightHeader"]);
-        test.go(
-            testArray = [
-                {
-                    Title: "Spanje",
-                    Img: "Spanje"
-                },
-
-                {
-                    Title: "Servië",
-                    Img: "Servie"
-                },
-
-                {
-                    Title: "Indonesië",
-                    Img: "Indonesie"
-                }
-            ]
+        const test = new CarrMain(
+            ["leftCardEnt", "leftTitle", "leftImage", "leftHeader", "leftPrice"],
+            ["centerCardEnt", "centerTitle", "centerImage", "middleHeader", "centerPrice"],
+            ["rightCardEnt", "rightTitle", "rightImage", "rightHeader", "rightPrice"]
         );
 
-        const testDeals = new CarrMain(["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage", "dealLeftHeader"], ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader"], ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader"]);
-        testDeals.go(
-            testArray = [
-                {
-                    Title: "Spanje + Auto + Tour",
-                    Img: "Spanje"
-                },
+        test.grabData("././assets/php/ajax/cardDataAjax.php");
 
-                {
-                    Title: "Servië + Hotel + Auto",
-                    Img: "Servie"
-                },
-
-                {
-                    Title: "Indonesië + Hotel",
-                    Img: "Indonesie"
-                }
-            ]
+        const testDeals = new CarrMain(
+            ["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage", "dealLeftHeader", "leftDealPrice"],
+            ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader", "centerDealPrice"],
+            ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader", "rightDealPrice"]
         );
+        
+        testDeals.grabData("././assets/php/ajax/grabDealDataAjax.php");
     </script>
 </section>

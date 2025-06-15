@@ -1,10 +1,11 @@
 class CarrMain {
     carro;
-    xhttp;
 
     leftCardTotal;
     centerCardTotal;
     rightCardTotal;
+
+    testArray;
 
     constructor(leftIDS, centerIDS, rightIDS) {
         this.leftCardTotal = {
@@ -12,6 +13,7 @@ class CarrMain {
             Title: document.getElementById(leftIDS[1]),
             Image: document.getElementById(leftIDS[2]),
             Header: document.getElementById(leftIDS[3]),
+            Price: document.getElementById(leftIDS[4]),
             Color: "bg-[#76C893]"
         }
 
@@ -20,6 +22,7 @@ class CarrMain {
             Title: document.getElementById(centerIDS[1]),
             Image: document.getElementById(centerIDS[2]),
             Header: document.getElementById(centerIDS[3]),
+            Price: document.getElementById(centerIDS[4]),
             Color: "bg-[#52B69A]"
         }
 
@@ -28,25 +31,31 @@ class CarrMain {
             Title: document.getElementById(rightIDS[1]),
             Image: document.getElementById(rightIDS[2]),
             Header: document.getElementById(rightIDS[3]),
+            Price: document.getElementById(rightIDS[4]),
             Color: "bg-[#99D98C]"
         }
     }
 
     //herimplementeren als de database staat
-    // xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         testArray = this.response;
-    //         testArray = JSON.parse(testArray);
-    //         go();
-    //     }
-    // };
+    grabData(url) {
+        var global = this;
 
-    // xhttp.open("GET", "../Port_upd/ajax/getProjects.php");
-    // xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var testArray = this.response;
+                testArray = JSON.parse(testArray);
+                global.go(testArray);
+            }
+        };
 
-    go(testArray) {
-        this.carro = new Carroussel(testArray, 3);
+        xhttp.open("GET", url);
+        xhttp.send();
+
+    }
+
+    go(result) {
+        this.carro = new Carroussel(result, 3);
         this.setCards();
     }
 
@@ -72,6 +81,7 @@ class CarrMain {
         this.leftCardTotal.Title.textContent = this.carro.getActiveCards()[0].title;
         this.leftCardTotal.Image.src = this.carro.getActiveCards()[0].img;
         this.leftCardTotal.Image.alt = this.carro.getActiveCards()[0].alt;
+        this.leftCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[0].price + " p.p";
         this.leftCardTotal.Header.classList.add(this.leftCardTotal.Color);
         this.leftCardTotal.Ent.onclick = function () {
             setModalContent([
@@ -85,6 +95,7 @@ class CarrMain {
         this.centerCardTotal.Title.textContent = this.carro.getActiveCards()[1].title;
         this.centerCardTotal.Image.src = this.carro.getActiveCards()[1].img;
         this.centerCardTotal.Image.alt = this.carro.getActiveCards()[1].alt;
+        this.centerCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[1].price + " p.p";
         this.centerCardTotal.Header.classList.add(this.centerCardTotal.Color);
         this.centerCardTotal.Ent.onclick = function () {
             setModalContent([
@@ -97,6 +108,7 @@ class CarrMain {
         this.rightCardTotal.Title.textContent = this.carro.getActiveCards()[2].title;
         this.rightCardTotal.Image.src = this.carro.getActiveCards()[2].img;
         this.rightCardTotal.Image.alt = this.carro.getActiveCards()[2].alt;
+        this.rightCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[2].price + " p.p";
         this.rightCardTotal.Header.classList.add(this.rightCardTotal.Color);
         this.rightCardTotal.Ent.onclick = function () {
             setModalContent([
