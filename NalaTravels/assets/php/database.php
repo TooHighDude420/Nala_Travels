@@ -26,6 +26,35 @@ class Database
         return $res;
     }
 
+    public function getDataForCards()
+    {
+        $stmt = Conn::$conn->prepare("
+        SELECT trip.tripID, flights.FreeSeats, flights.price, countries.CountryName, countries.CountryDisc, countries.ImageLoc
+        FROM trip
+        INNER JOIN flights ON trip.FlightID = flights.FlightID
+        INNER JOIN countries ON flights.Destination = countries.Airport");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getDealDataForCards()
+    {
+        $stmt = Conn::$conn->prepare("
+        SELECT trip.tripID, flights.FreeSeats, deals.price, deals.dealName, countries.CountryDisc, countries.ImageLoc
+        FROM deals
+        INNER JOIN trip ON deals.tripID = trip.TripID
+        INNER JOIN flights ON trip.FlightID = flights.FlightID
+        INNER JOIN countries ON flights.Destination = countries.Airport");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
     /**
      * bookFlight zorgt ervoor dat vluchten geboekt kunnen worden
      * @param mixed $username
@@ -41,7 +70,7 @@ class Database
             INSERT INTO traveler (userID, Fname, Lname) VALUES (:userID, :fname, :lname);
             INSERT INTO trips_travelers (travelerID, tripID) VALUES (:travelerID, :tripID);
         ");
-        
+
         $userID = $this->getUserID($username);
         $flightID = $this->getFlightID($des, $dep);
         $travelerID = $this->getTravelerID($fName, $lName, $userID);

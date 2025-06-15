@@ -5,13 +5,15 @@ class Card {
     alt = "";
     index = 0;
     color = ""
+    price = 0;
 
-    constructor(title, img, index, color) {
+    constructor(title, img, index, color, price) {
         this.title = title;
         this.alt = img;
-        this.img = "assets/img/cards/" + img + ".png";
+        this.img = "assets/img/cards/" + img;
         this.index = index;
         this.color = color;
+        this.price = price;
     }
 
     toString() {
