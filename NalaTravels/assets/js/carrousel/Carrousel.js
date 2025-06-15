@@ -10,8 +10,13 @@ class Carroussel {
             "bg-[#52B69A]",
             "bg-[#99D98C]"
         ]
+
         for (var i = 0; i < data.length; i++) {
-            this.cardList.push(new Card(data[i].Title, data[i].Img, i, colors[Math.floor(Math.random() * 2)]));
+            if (data[i].CountryName != undefined) {
+                this.cardList.push(new Card(data[i].CountryName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price));
+            } else {
+                this.cardList.push(new Card(data[i].dealName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price));
+            }
         }
 
         this.size = size;
@@ -23,7 +28,7 @@ class Carroussel {
         }
     }
 
-    nextColor(leftCard, centerCard, rightCard){
+    nextColor(leftCard, centerCard, rightCard) {
         leftCard.Header.classList.add(this.activeCards[0].color);
         leftCard.Color = this.activeCards[0].color;
         centerCard.Header.classList.add(this.activeCards[1].color);
@@ -32,7 +37,7 @@ class Carroussel {
         rightCard.Color = this.activeCards[2].color;
     }
 
-    prevColor(leftCard, centerCard, rightCard){
+    prevColor(leftCard, centerCard, rightCard) {
         leftCard.Header.classList.add(this.activeCards[2].color);
         leftCard.Color = this.activeCards[2].color;
         centerCard.Header.classList.add(this.activeCards[1].color);
@@ -54,7 +59,7 @@ class Carroussel {
         this.activeCards[1] = this.activeCards[2]
         this.activeCards[2] = this.cardList.at(this.index);
         this.addToIndex();
-        }
+    }
 
     prevCard() {
         this.activeCards[2] = this.activeCards[1];
