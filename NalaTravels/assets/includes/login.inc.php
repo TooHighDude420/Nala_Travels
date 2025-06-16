@@ -13,11 +13,11 @@
             </div>
             <div>
                 <label class="text-white text-xl" for="username">Username:</label>
-                <input type="text" name="username" placeholder="Username" class="rounded-[5px]">
+                <input type="text" name="username" placeholder=" Username" class="rounded-[5px]">
             </div>
             <div>
                 <label class="text-white text-xl" for="password">Password:</label>
-                <input type="password" name="password" placeholder="Password" class="rounded-[5px]">
+                <input type="password" name="password" placeholder=" Password" class="rounded-[5px]">
             </div>
             <div class="flex justify-evenly w-[40%]">
                 <button type="submit" class="text-white bg-black w-[10vh] h-[5vh] rounded-[5px]">Login</button>
