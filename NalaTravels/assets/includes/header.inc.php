@@ -26,7 +26,8 @@
                     </div>
                 
                 <form action="assets/php/logout.php">
-                    <button type="submit" class="mr-5">logout</button>
+                    <button type="submit" class="mr-5 text-white">logout</button>
+                    <a href="index.php?page=home" class="mr-5 text-white">Home</a>
                 </form>
         </div>';
     } elseif ($pagep == "dashboard" && $_SESSION["role"] == 1) {
