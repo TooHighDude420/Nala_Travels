@@ -9,7 +9,7 @@
         <form action="assets/php/login.php" method="post"
             class="h-full w-full flex flex-col justify-around items-center">
             <div class="text-white text-5xl">
-                <p>Aanmelden</p>
+                <p>Login</p>
             </div>
             <div>
                 <label class="text-white text-xl" for="username">Username:</label>
