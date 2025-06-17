@@ -1,13 +1,16 @@
-<section class="h-[85vh] login flex flex-col justify-center items-center gap-y-[2vh]">
+<section class="h-[100vh] login flex flex-col justify-center items-center gap-y-[2vh]">
     <div>
         <a href="index.php?page=home">
             <img src="assets/img/header/logo.png" alt="logo">
         </a>
     </div>
 
-    <div class="bg-col-login bg-[#34A0A4] border-solid border-2 border-black rounded-[50px] h-[50vh] w-[35%] opacity-80">
+    <div class="bg-col-login border-solid border-2 border-black rounded-[50px] h-[60vh] w-[40%]">
         <form action="assets/php/register.php" method="post"
-            class="h-[40vh] w-full flex flex-col justify-around items-center mt-10">
+            class="h-full w-full flex flex-col justify-around items-center">
+            <div class="text-white text-5xl">
+                <p>Register</p>
+            </div>
             <div class="">
                 <input type="text" name="username" placeholder=" Username" class="rounded-[5px] h-[4vh] mr-3">
                 <input type="text" name="email" placeholder=" Email" class="rounded-[5px] h-[4vh]">
