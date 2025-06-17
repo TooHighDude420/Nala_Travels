@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex justify-between">
                         <p id="leftPrice"></p>
-                        <button>boek nu!</button>
+                        <button type="submit">boek nu!</button>
                     </div>
                 </div>
             </div>

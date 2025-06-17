@@ -8,6 +8,19 @@ class Database
         Conn::makeCon();
     }
 
+    public function getDataFromUser(string $username){
+        $stmt = Conn::$conn->prepare("
+            SELECT * FROM users
+            WHERE username = :username
+        ");
+
+        $stmt->bindParam("username", $username);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
     public function search(string $departure, string $destination, string $grp)
     {
         $stmt = Conn::$conn->prepare("
