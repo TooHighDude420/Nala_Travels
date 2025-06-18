@@ -76,13 +76,19 @@ $dataEnc = json_encode($data);
                         <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>
                 </form>
             </div>";
-            if ($i == 1 || $i == 3) {
+            if ($i == 1 || $i == 3 || $i == 4) {
                 echo "</div>";
             }
 
         }
-    }
 
+    }
     ?>
+
+    <div class="flex justify-evenly w-[40%]">
+        <button type="submit" class="text-white bg-black w-[10vh] h-[5vh] rounded-[5px]">Login</button>
+        <a href="index.php?page=register"
+            class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Register</a>
+    </div>
 
 </section>
