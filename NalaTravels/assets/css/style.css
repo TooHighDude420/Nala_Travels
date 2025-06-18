@@ -15,7 +15,7 @@
 
 .login {
     background-image: url(../img/login/bg.png);
-    background-size: 100% 100vh;
+    background-size: 100% auto;
 }
 
 .inputFields {
