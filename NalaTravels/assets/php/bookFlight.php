@@ -7,20 +7,19 @@ isset($_SESSION) ?: session_start();
 
 $encdata = $_GET['data'];
 
-$data = json_decode($encdata);
+$data =  json_decode($encdata);
 
-var_dump($data);
-
-$dep = $data[0];
-$des = $data[1];
 
 $dataUser = $db->getDataFromUser($_SESSION["username"]);
 
-$fname = $dataUser["fName"];
-$lName = $dataUser["lName"];
+$dep = $data[1];
+$des = $data[2];
+$fname = $dataUser[0]["fName"];
+$lName = $dataUser[0]["lName"];
+$un = $_SESSION['username'];
 
 $db->bookFlight(
-    $_SESSION["username"],
+    $un,
     $fname,
     $lName,
     $des,

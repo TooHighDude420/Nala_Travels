@@ -35,7 +35,7 @@ $dataEnc = json_encode($data);
         if ($i == 0) {
             echo "
                 <div class='bg-gray-200 h-[25vh] w-[80%]'>
-                    <form action='assets/php/bookFlight.php?data=$dataEnc' method='post'>
+                    <form action='assets/php/checkLogin.php?data=$dataEnc' method='post'>
                         <label for='firstName'>Voornaam:</label>
                         <input placeholder='Voornaam' value='$fName' type='text' name='fName' id='fName'>
             
@@ -55,9 +55,9 @@ $dataEnc = json_encode($data);
         } else {
             echo "
                 <div class='bg-gray-200 h-[25vh] w-[80%]'>
-                    <form action='assets/php/bookFlight.php?data=$dataEnc' method='post'>
+                    <form action='assets/php/checkLogin.php?data=$dataEnc' method='post'>
                         <label for='firstName'>Voornaam:</label>
-                        <input placeholder='Voornaam' type='text' name='fName' id='fName'>
+                        <input placeholder='Voornaam' type='text' name='fName' id='fName' class=''>
             
                         <label for='lastName'>Achternaam:</label>
                         <input placeholder='Achternaam' type='text' name='lName' id='lName'>
