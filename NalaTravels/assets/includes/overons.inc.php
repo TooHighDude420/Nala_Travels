@@ -4,7 +4,7 @@
             <h1 class="ml-5 mt-3">
                 Over ons
             </h1>
-            <p class="mt-5 mb-10 ml-5 mr-5">
+            <p class="mt-2 mb-10 ml-5 mr-5">
                 Wij zijn Laura Pos en Nataro Ajaouin, studenten aan het ROC Technovium. Voor het vak Webapplicatie
                 hebben
                 wij
@@ -15,12 +15,12 @@
                 Ontdek, beleef en geniet met ons reisbureau!
             </p>
         </div>
-        <div class="right  w-[30%] ml-5">
+        <div class="right w-[30%] ml-5">
             <div class="contact bg-[#52B69A] h-[20vh] rounded-[10px]">
                 <h1 class=" ml-5 pt-3">
                     Contact
                 </h1>
-                <div class="mt-5 ml-5 mr-5">
+                <div class="mt-2 ml-5 mr-5">
                     <div class="flex">
                         <img src="assets/img/over-ons/contact/email.png" alt="email" class="mr-3">
                         <p>NalaTravels@travel.com</p>
@@ -36,7 +36,7 @@
                     geaffilieerd
                 </h1>
                 <div class="flex w-100% justify-evenly">
-                    <img src="assets/img/over-ons/geaffilieerd/klm.png" alt="klm" class="w-[80px] h-[12vh]">
+                    <img src="assets/img/over-ons/geaffilieerd/klm.png" alt="klm" class="w-[80px] h-[10vh] mt-3">
                     <img src="assets/img/over-ons/geaffilieerd/iceland.png" alt="iceland" class="w-[80px] h-[15vh]">
                     <img src="assets/img/over-ons/geaffilieerd/serbia.png" alt="serbia" class="w-[80px] h-[15vh]">
                 </div>
