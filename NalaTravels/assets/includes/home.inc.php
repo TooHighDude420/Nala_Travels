@@ -2,7 +2,7 @@
     <div id="locationsHolder" class="pt-[20px] pl-[20px]">
         <h1>Uitgelichte Locaties</h1>
         <div id="cardHolder" class="flex gap-x-[5%] justify-center pl-[0px]">
-            <div>
+            <div class="mt-12">
                 <img onclick="test.nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
 
@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex justify-between">
                         <p id="leftPrice"></p>
-                        <button>boek nu!</button>
+                        <button type="submit">boek nu!</button>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="mt-12">
                 <img onclick="test.prevCard()" src="assets/img/cards/ArrowRight.png" alt="RightArrow">
             </div>
         </div>
@@ -65,7 +65,7 @@
     <div id="dealsHolder" class="pt-[20px] pl-[20px]">
         <h1>Uitgelichte deals</h1>
         <div id="dealCardHolder" class="flex gap-x-[5%] justify-center pl-[0px]">
-            <div>
+            <div  class="mt-12">
                 <img onclick="testDeals.nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
 
@@ -119,7 +119,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="mt-12">
                 <img onclick="testDeals.prevCard()" src="assets/img/cards/ArrowRight.png" alt="RightArrow">
             </div>
         </div>
