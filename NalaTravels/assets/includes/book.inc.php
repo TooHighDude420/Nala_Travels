@@ -54,11 +54,13 @@ $dataEnc = json_encode($data);
                 </div>
         ";
         } else {
-            if ($i == 2){
+            if ($i == 2) {
                 echo "<div class='flex justify-center gap-x-[50px]'>";
+            } else if ($i == 4) {
+                echo "<div class='flex w-full justify-center'>";
             }
             echo "
-                <div class='bg-$colArray[$i] h-[22vh] w-[40%] flex justify-center] rounded-[10px]'>
+                <div class='bg-$colArray[$i] h-[22vh] w-[40%] flex justify-center rounded-[10px]'>
                     <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
                         <label for='firstName' class='ml-[15px]'>Voornaam:</label>
                         <input placeholder=' Voornaam' type='text' name='fName' id='fName' class='w-[25%] text-gray-600 rounded-[8px]'>
@@ -74,10 +76,10 @@ $dataEnc = json_encode($data);
                         <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>
                 </form>
             </div>";
-            if ($i == 1 || $i == 3){
+            if ($i == 1 || $i == 3) {
                 echo "</div>";
             }
-            
+
         }
     }
 
