@@ -85,8 +85,8 @@
                                 class="inputFields placeholder:text-center rounded-[5px]" placeholder="Vertrek">
                             <input type="text" name="arrival" id="arrival" class="inputFields placeholder:text-center rounded-[5px]"
                                 placeholder="Bestemming">
-                            <select name="groupSize" id="groupSize" class="inputFields rounded-[5px]">
-                                <option value="def" selected="true" disabled="disabled" class="text-gray-500">Aantal
+                            <select name="groupSize" id="groupSize" class="inputFields rounded-[5px] text-gray-400">
+                                <option value="def" selected="true" disabled="disabled">Aantal
                                     personen
                                 </option>
                                 <option value="1">1</option>

@@ -15,7 +15,7 @@ if (isset($_GET['page'])) {
     $page = 'home';
 }
 
-$headerArray = ["home", "contact", "overons", "search", "dashboard"];
+$headerArray = ["home", "contact", "overons", "search", "dashboard", "book"];
 $footerArray = ["home", "contact", "overons", "search", "login", "register"];
 
 ?>
