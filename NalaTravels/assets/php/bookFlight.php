@@ -9,11 +9,10 @@ $encdata = $_GET['data'];
 
 $data =  json_decode($encdata);
 
-
 $dataUser = $db->getDataFromUser($_SESSION["username"]);
 
-$dep = $data[1];
-$des = $data[2];
+$dep = $data[0];
+$des = $data[1];
 $fname = $dataUser[0]["fName"];
 $lName = $dataUser[0]["lName"];
 $un = $_SESSION['username'];
