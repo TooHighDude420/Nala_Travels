@@ -59,7 +59,7 @@ class Database
     public function getDataForCards()
     {
         $stmt = Conn::$conn->prepare("
-        SELECT trip.tripID, flights.FreeSeats, flights.price, countries.CountryName, countries.CountryDisc, countries.ImageLoc
+        SELECT trip.tripID, flights.FreeSeats, flights.price, countries.CountryName, countries.CountryDisc, countries.ImageLoc, flights.destination, flights.departure
         FROM trip
         INNER JOIN flights ON trip.FlightID = flights.FlightID
         INNER JOIN countries ON flights.Destination = countries.Airport");
