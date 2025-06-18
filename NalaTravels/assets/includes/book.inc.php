@@ -44,6 +44,7 @@ $dataEnc = json_encode($data);
                             <label for='lastName'>Achternaam:</label>
                             <input placeholder=' Achternaam' value=' $lName' type='text' name='lName' id='lName' class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>
 
+
                             <label for='Departure' class='ml-[15px]'>Vertrek</label>
                             <input value=' $dep' type='text' name='departure' id='fName' disabled class='w-[10%] mt-[20px] rounded-[8px] mr-[200px]'>
 
@@ -61,6 +62,7 @@ $dataEnc = json_encode($data);
                     <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
                         <label for='firstName' class='ml-[15px]'>Voornaam:</label>
                         <input placeholder=' Voornaam' type='text' name='fName' id='fName' class='w-[25%] text-gray-600 rounded-[8px]'>
+
             
                         <label for='lastName'>Achternaam:</label>
                         <input placeholder=' Achternaam' type='text' name='lName' id='lName' class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>

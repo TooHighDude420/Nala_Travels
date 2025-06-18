@@ -1,8 +1,10 @@
 <?php
-$data = $_POST['data'];
+if(isset($_POST["data"])){
+    $data = $_POST['data'];
+} else {
+    $data = $_GET['data'];
+}
 
 isset($_SESSION) ? : session_start();
-
-var_dump($_SESSION);
 
 isset($_SESSION['username']) ?  header("location: bookFlight.php?data=$data") : header("location: ../../index.php?page=login");
