@@ -23,7 +23,7 @@ $lName = $res[0]["lName"];
 $dataEnc = json_encode($data);
 ?>
 
-<section class="login text-white h-[100vh] flex flex-col gap-y-[50px] pt-[55px]">
+<section class="login text-white h-fit flex flex-col gap-y-[50px] pt-[55px]">
     <?php
     for ($i = 0; $i < $size; $i++) {
         $colArray = [
@@ -85,10 +85,10 @@ $dataEnc = json_encode($data);
     }
     ?>
 
-    <div class="flex justify-evenly w-[40%]">
-        <button type="submit" class="text-white bg-black w-[10vh] h-[5vh] rounded-[5px]">Login</button>
-        <a href="index.php?page=register"
-            class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Register</a>
+    <div class="flex justify-center">
+        <a href="index.php?page=home"
+            class="text-white bg-black w-[15vh] h-[5vh] rounded-[5px] text-center content-center mr-10 mb-10">Go back</a>
+        <button type="submit" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px]">Book now!</button>
     </div>
 
 </section>

@@ -6,21 +6,24 @@
                 <img onclick="test.nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
 
-            <div id="leftCardEnt" class="h-[20vh] w-[15%]">
-                <div id="leftHeader"
-                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="leftTitle"></h1>
-                </div>
-                <div id="leftContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="leftImage" src="" alt="" class="h-full w-full">
+            <form id="leftAction" action="" method="post">
+                <div id="leftCardEnt" class="h-[20vh] w-[15%]">
+                    <div id="leftHeader"
+                        class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="leftTitle"></h1>
                     </div>
-                    <div class="flex justify-between">
-                        <p id="leftPrice"></p>
-                        <button type="submit">boek nu!</button>
+                    <div id="leftContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="leftImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="leftPrice"></p>
+                            <button type="submit">boek nu!</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
 
             <div id="centerCardEnt" class="h-[25vh] w-[15%]">
                 <div id="middleHeader"
@@ -65,7 +68,7 @@
     <div id="dealsHolder" class="pt-[20px] pl-[20px]">
         <h1>Uitgelichte deals</h1>
         <div id="dealCardHolder" class="flex gap-x-[5%] justify-center pl-[0px]">
-            <div  class="mt-12">
+            <div class="mt-12">
                 <img onclick="testDeals.nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
 
@@ -135,7 +138,7 @@
     <script src="assets/js/carrousel/myWork.js"></script>
     <script>
         const test = new CarrMain(
-            ["leftCardEnt", "leftTitle", "leftImage", "leftHeader", "leftPrice"],
+            ["leftCardEnt", "leftTitle", "leftImage", "leftHeader", "leftPrice", "leftAction"],
             ["centerCardEnt", "centerTitle", "centerImage", "middleHeader", "centerPrice"],
             ["rightCardEnt", "rightTitle", "rightImage", "rightHeader", "rightPrice"]
         );
@@ -147,7 +150,7 @@
             ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader", "centerDealPrice"],
             ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader", "rightDealPrice"]
         );
-        
+
         testDeals.grabData("././assets/php/ajax/grabDealDataAjax.php");
     </script>
 </section>

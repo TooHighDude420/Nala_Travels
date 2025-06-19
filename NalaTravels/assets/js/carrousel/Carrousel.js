@@ -11,9 +11,16 @@ class Carroussel {
             "bg-[#99D98C]"
         ]
 
+        console.log(data);
+
+
+
         for (var i = 0; i < data.length; i++) {
+            var dataEnc = JSON.stringify(data[i]);
+            console.log(dataEnc);
+
             if (data[i].CountryName != undefined) {
-                this.cardList.push(new Card(data[i].CountryName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price));
+                this.cardList.push(new Card(data[i].CountryName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price, data[i].departure, data[i].destination, dataEnc));
             } else {
                 this.cardList.push(new Card(data[i].dealName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price));
             }
