@@ -16,7 +16,7 @@
             </p>
         </div>
         <div class="right w-[30%] ml-5">
-            <div class="contact bg-[#52B69A] h-[20vh] rounded-[10px]">
+            <div class="contact bg-[#52B69A] h-[22vh] rounded-[10px]">
                 <h1 class=" ml-5 pt-3">
                     Contact
                 </h1>
@@ -29,9 +29,13 @@
                         <img src="assets/img/over-ons/contact/phone-call.png" alt="phone" class="mr-3">
                         <p>+31 6 69696942</p>
                     </div>
+                    <div>
+                        <a href="index.php?page=contact"
+                            class="text-white w-[15vh] h-[5vh] rounded-[5px] underline">click to contact</a>
+                    </div>
                 </div>
             </div>
-            <div class="bg-[#99D98C] mt-10 rounded-[10px] h-[38vh]">
+            <div class="bg-[#99D98C] mt-10 rounded-[10px] h-[36vh]">
                 <h1 class="pt-3 ml-5">
                     geaffilieerd
                 </h1>
@@ -43,7 +47,7 @@
                 <div class="flex w-100% justify-evenly">
                     <img src="assets/img/over-ons/geaffilieerd/mexico.png" alt="mexico" class="w-[80px] h-[13vh]">
                     <img src="assets/img/over-ons/geaffilieerd/china.png" alt="china" class="w-[80px] h-[15vh]">
-                    <img src="assets/img/over-ons/geaffilieerd/vueling.png" alt="vueling" class="w-[80px] h-[15vh]">
+                    <img src="assets/img/over-ons/geaffilieerd/vueling.png" alt="vueling" class="w-[80px] h-[13vh]">
                     <img src="assets/img/over-ons/geaffilieerd/xiamen.png" alt="xiamen" class="w-[80px] h-[15vh]">
                 </div>
             </div>
