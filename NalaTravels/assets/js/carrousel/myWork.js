@@ -14,6 +14,7 @@ class CarrMain {
             Image: document.getElementById(leftIDS[2]),
             Header: document.getElementById(leftIDS[3]),
             Price: document.getElementById(leftIDS[4]),
+            Action: document.getElementById(leftIDS[5]),
             Color: "bg-[#76C893]"
         }
 
@@ -23,6 +24,7 @@ class CarrMain {
             Image: document.getElementById(centerIDS[2]),
             Header: document.getElementById(centerIDS[3]),
             Price: document.getElementById(centerIDS[4]),
+            Action: document.getElementById(centerIDS[5]),
             Color: "bg-[#52B69A]"
         }
 
@@ -32,6 +34,7 @@ class CarrMain {
             Image: document.getElementById(rightIDS[2]),
             Header: document.getElementById(rightIDS[3]),
             Price: document.getElementById(rightIDS[4]),
+            Action: document.getElementById(rightIDS[5]),
             Color: "bg-[#99D98C]"
         }
     }
@@ -82,6 +85,7 @@ class CarrMain {
         this.leftCardTotal.Image.src = this.carro.getActiveCards()[0].img;
         this.leftCardTotal.Image.alt = this.carro.getActiveCards()[0].alt;
         this.leftCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[0].price + " p.p";
+        this.leftCardTotal.Action.action = this.carro.getActiveCards()[0].actionLink;
         this.leftCardTotal.Header.classList.add(this.leftCardTotal.Color);
         this.leftCardTotal.Ent.onclick = function () {
             setModalContent([
@@ -96,6 +100,7 @@ class CarrMain {
         this.centerCardTotal.Image.src = this.carro.getActiveCards()[1].img;
         this.centerCardTotal.Image.alt = this.carro.getActiveCards()[1].alt;
         this.centerCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[1].price + " p.p";
+        this.centerCardTotal.Action = this.carro.getActiveCards()[1].actionLink;
         this.centerCardTotal.Header.classList.add(this.centerCardTotal.Color);
         this.centerCardTotal.Ent.onclick = function () {
             setModalContent([
@@ -109,6 +114,7 @@ class CarrMain {
         this.rightCardTotal.Image.src = this.carro.getActiveCards()[2].img;
         this.rightCardTotal.Image.alt = this.carro.getActiveCards()[2].alt;
         this.rightCardTotal.Price.textContent = "€" + this.carro.getActiveCards()[2].price + " p.p";
+        this.leftCardTotal.Action = this.carro.getActiveCards()[2].actionLink;
         this.rightCardTotal.Header.classList.add(this.rightCardTotal.Color);
         this.rightCardTotal.Ent.onclick = function () {
             setModalContent([
@@ -119,6 +125,3 @@ class CarrMain {
         }
     }
 }
-
-
-
