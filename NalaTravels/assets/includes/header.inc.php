@@ -31,24 +31,30 @@
                 </form>
         </div>';
     } elseif ($pagep == "dashboard" && $_SESSION["role"] == 1) {
+        if (isset($_GET["sp"])){
+
+        }
         echo '
             <div class="bg-[#1E6091] w-full h-[15vh] flex justify-between">
                     <a href="index.php?page=dashboard&sp=home">
                         <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
                     </a>
-                        <div class="flex">
-                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">
-                                Vluchten wijzigen
-                            </button>
-                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                                Verblijven wijzigen
-                            </button>
-                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                                Trips maken
-                            </button>
-                            <button type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                                Excursies wijzigen
-                            </button> 
+                        <div class="flex content-center flex-wrap">
+                            <a type="button" href="index.php?page=dashboard&sp=trips" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Trips
+                            </a>
+                            <a type="button" href="index.php?page=dashboard&sp=flights" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Vluchten
+                            </a>
+                            <a type="button" href="index.php?page=dashboard&sp=hotels" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Hotels
+                            </a>
+                            <a type="button" href="index.php?page=dashboard&sp=cars" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                Autos
+                            </a>
+                            <a type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                revieuws
+                            </a> 
                         </div>
                     
                     <div class="text-white flex mt-1">
