@@ -54,6 +54,7 @@
                             </td>
                             <td id='delete' class='px-6 py-4 text-right'>
                                 <a class='font-medium text-white'>Delete</a>
+
                             </td>
                         </tr>
                     ";
