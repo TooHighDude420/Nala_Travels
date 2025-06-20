@@ -1,5 +1,9 @@
-<section>
-    <div>
-        <p>welkom <?php echo $_SESSION['username'] ?> </p>
-    </div>
-</section>
+<?php
+    if(isset($_GET["sp"])){
+        $subpage = $_GET["sp"];
+    } else {
+        $subpage = "home";
+    }
+
+    include "admin/$subpage.inc.php";
+?>
