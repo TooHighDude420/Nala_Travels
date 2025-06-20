@@ -17,16 +17,16 @@
             </span>
             <ul class="flex mt-1 text-sm font-thin text-white ">
                 <li>
-                    <a href="#" class="hover:underline me-4">About</a>
+                    <a href="index.php?page=overons" class="hover:underline me-4">About</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline me-4">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4">Licensing</a>
+                    <a href="index.php?page=overons" class="hover:underline me-4">Licensing</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a href="index.php?page=contact" class="hover:underline">Contact</a>
                 </li>
             </ul>
         </div>
