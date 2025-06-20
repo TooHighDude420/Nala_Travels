@@ -1,7 +1,6 @@
 <?php
 class qol
 {
-
     public static function getRandomCol()
     {
         $colArray = [
@@ -13,7 +12,8 @@ class qol
         ];
 
         $colIndex = rand(0, sizeof($colArray) - 1);
-    
+
         return $colArray[$colIndex];
     }
+
 }

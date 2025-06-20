@@ -8,7 +8,7 @@
             </svg>
             <p class="ms-2 text-sm font-bold text-white dark:text-white">4.95</p>
             <span class="w-1.5 h-1.5 mx-1.5 bg-white rounded-full"></span>
-            <a href="#" class="text-sm font-medium text-white underline hover:no-underline">73
+            <a href="index.php?page=review" class="text-sm font-medium text-white underline hover:no-underline">73
                 reviews</a>
         </div>
         <div class="w-100 p-4 flex items-center flex-col">
@@ -17,16 +17,16 @@
             </span>
             <ul class="flex mt-1 text-sm font-thin text-white ">
                 <li>
-                    <a href="#" class="hover:underline me-4">About</a>
+                    <a href="index.php?page=overons" class="hover:underline me-4">About</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline me-4">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4">Licensing</a>
+                    <a href="index.php?page=overons" class="hover:underline me-4">Licensing</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a href="index.php?page=contact" class="hover:underline">Contact</a>
                 </li>
             </ul>
         </div>
