@@ -20,12 +20,22 @@ $date = $_GET["dt"];
     
     echo "<div class='flex flex-col content-center flex-wrap gap-y-[20px]'>";
 
+    $cols = [
+        "[#D9ED92]",
+        "[#B5E48C]",
+        "[#99D98C]",
+        "[#76CB93]",
+        "[#52B69A]"
+    ];
+
     foreach ($trips as $trip) {
         $dep = $trip["Departure"];
         $des = $trip["Destination"];
         $price = $trip["Price"];
         $free = $trip["FreeSeats"];
         $img = $trip["ImageLoc"];
+
+        $colIndex = rand(0, sizeof($cols) - 1);
 
         if ($people != '') {
             $totalPrice = $price * $people;
@@ -54,8 +64,10 @@ $date = $_GET["dt"];
             $json_data = json_encode($data);
         }
 
+        $selCol = $cols[$colIndex];
+
         echo "
-        <form class='p-5 bg-gray-200 h-[25-vh] w-[80%] rounded' action='assets/php/checkLogin.php' method='post'>
+        <form class='p-5 bg-$selCol h-[25-vh] w-[80%] rounded' action='assets/php/checkLogin.php' method='post'>
             <input name='data' value='$json_data' class='hidden'>
             <div class='flex'>
                 <div>
@@ -71,12 +83,12 @@ $date = $_GET["dt"];
                         <button type='submit' class=''>
                             boek nu!
                         </button>";
-                        if ($people != '') {
-                            echo "<p>€ $totalPrice | $free free seats</p>";
-                        } else {
-                            echo "<p>€$price p.p | $free free seats</p>";
-                        }
-                        echo "
+        if ($people != '') {
+            echo "<p>€ $totalPrice | $free free seats</p>";
+        } else {
+            echo "<p>€$price p.p | $free free seats</p>";
+        }
+        echo "
                     </div>
                 </div>
             </div>

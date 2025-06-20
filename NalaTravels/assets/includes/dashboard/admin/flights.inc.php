@@ -1,4 +1,4 @@
-<section>
+<section class="login">
     <div>
         <h1>Vluchten:</h1>
     </div>

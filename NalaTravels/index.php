@@ -3,6 +3,7 @@
 
 <?php
 require("assets/php/database.php");
+require("assets/php/QoL.php");
 
 $database = new Database();
 
