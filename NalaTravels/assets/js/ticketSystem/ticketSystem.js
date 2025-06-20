@@ -30,7 +30,8 @@ addBtn.onclick = function(){
     const formHolder = document.createElement("div");
     const form = document.createElement("form");
     const fNameLabel = document.createElement("label");
-    const fNameInput = ducument.createElement("input");
+    const fNameInput = document.createElement("input");
+    const lNameLabel = document.createElement("label");
     holder.classList = "flex justify-center gap-x-[50px]";
     formHolder.classList = "bg-[#D9ED92] h-[22vh] w-[40%] rounded-[10px]";
     form.action = "assets/php/bookFlight.php?data=$dataEnc";
@@ -40,8 +41,18 @@ addBtn.onclick = function(){
     fNameLabel.classList = "ml-[15px]";
     fNameLabel.textContent = "Voornaam:";
     fNameInput.placeholder = " Voornaam:";
+    fNameInput.value = "$fname"
+    fNameInput.type = "text";
+    fNameInput.name = "fName";
+    fNameInput.id = "fName";
+    fNameInput.classList = "text-gray-600 w-[25%] rounded-[8px]";
+    lNameLabel.for = "lastName";
+    lNameLabel.textContent = "Achternaam:";
     root.append(holder);
     holder.append(formHolder);
     formHolder.append(form);
     form.append(fNameLabel);
+    form.append(fNameInput);
+    form.append(lNameLabel);
+
 }
