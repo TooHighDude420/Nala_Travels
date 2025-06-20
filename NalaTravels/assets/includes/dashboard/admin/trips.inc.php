@@ -51,7 +51,7 @@
                             <td id='edit' class='px-6 py-4 text-right'>
                                 <a class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Edit</a>
                             </td>
-                            <td id='edit' class='px-6 py-4 text-right'>
+                            <td id'delete' class='px-6 py-4 text-right'>
                                 <a class='font-medium text-blue-600 dark:text-blue-500 hover:underline'>Delete</a>
                             </td>
                         </tr>
