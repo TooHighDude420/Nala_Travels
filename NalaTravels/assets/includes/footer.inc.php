@@ -8,7 +8,7 @@
             </svg>
             <p class="ms-2 text-sm font-bold text-white dark:text-white">4.95</p>
             <span class="w-1.5 h-1.5 mx-1.5 bg-white rounded-full"></span>
-            <a href="#" class="text-sm font-medium text-white underline hover:no-underline">73
+            <a href="index.php?page=review" class="text-sm font-medium text-white underline hover:no-underline">73
                 reviews</a>
         </div>
         <div class="w-100 p-4 flex items-center flex-col">

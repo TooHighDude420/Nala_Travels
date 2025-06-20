@@ -26,6 +26,45 @@ class Database
         return $res;
     }
 
+    public function getFlights()
+    {
+        $stmt = Conn::$conn->prepare("SELECT * FROM flights");
+
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
+    public function getCars()
+    {
+        $stmt = Conn::$conn->prepare("
+        SELECT car.CarID, countries.CountryName, car.Price FROM car
+        INNER JOIN countries ON car.CountryID=countries.CountryID
+        ");
+
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
+    public function getHotels()
+    {
+        $stmt = Conn::$conn->prepare("
+        SELECT hotel.HotelID, countries.CountryName, hotel.Price FROM hotel
+        INNER JOIN countries ON hotel.CountryID=countries.CountryID
+        ");
+
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
     /**
      * Summary of search
      * @param string $departure the departure airport
@@ -45,7 +84,7 @@ class Database
         $stmt->bindParam("dalt", $destination);
         $stmt->bindParam("a", $destination);
         $stmt->bindParam("grp", $grp);
-        
+
         $stmt->execute();
 
         $res = $stmt->fetchAll();
@@ -128,7 +167,7 @@ class Database
         $stmt->bindParam("flightID", $flightID);
 
         $stmt->execute();
-        
+
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $res;
