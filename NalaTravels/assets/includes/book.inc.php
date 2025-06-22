@@ -1,22 +1,20 @@
 <?php
 if (isset($_GET["data"])) {
     $dataDec = json_decode($_GET["data"]);
-}
-
-if (isset($_GET["s"])) {
-    $size = $_GET["s"];
-}
-
-if (isset($_GET["dep"])) {
-    $dep = $_GET["dep"];
-} else {
-    $dep = $dataDec->departure;
-}
-
-if (isset($_GET["des"])) {
-    $des = $_GET["des"];
-} else {
-    $des = $dataDec->destination;
+    if (is_object($dataDec)) {
+        $tripId = $dataDec->tripID;
+        $free = $dataDec->FreeSeats;
+        $price = $dataDec->price;
+        $name = $dataDec->CountryName;
+        $des = $dataDec->destination;
+        $dep = $dataDec->departure;
+    } else {
+        $dep = $dataDec[0];
+        $des = $dataDec[1];
+        $price = $dataDec[2];
+        $free = $dataDec[3];
+        $size = $dataDec[5];
+    }
 }
 
 if (isset($_SESSION)) {
@@ -47,32 +45,16 @@ $lName = $res[0]["lName"];
 $dataEnc = json_encode($data);
 ?>
 
-<section id="root" class="login text-white h-fit flex flex-col gap-y-[50px] pt-[55px]">
-    <div class='flex justify-center gap-x-[50px]'>
-        <div class='bg-[#D9ED92] h-[22vh] w-[40%] rounded-[10px]'>
-            <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
-                <label for='firstName' class='ml-[15px]'>Voornaam:</label>
-                <input placeholder=' Voornaam' value=' $fName' type='text' name='fName' id='fName'
-                    class='text-gray-600 w-[25%] rounded-[8px]'>
-
-                <label for='lastName'>Achternaam:</label>
-                <input placeholder=' Achternaam' value=' $lName' type='text' name='lName' id='lName'
-                    class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>
-
-
-                <label for='Departure' class='ml-[15px]'>Vertrek</label>
-                <input value=' $dep' type='text' name='departure' id='fName' disabled
-                    class='w-[10%] mt-[20px] rounded-[8px] mr-[200px]'>
-
-                <label for='Destination'>Besteming</label>
-                <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>
-            </form>
-        </div>
-        <button id="add" type="submit">
-                Add
-            </button>
+<section class="login text-white h-fit flex flex-col gap-y-[50px] pt-[55px]">
+    <div class='flex flex-col content-center flex-wrap justify-center gap-x-[50px] gap-y-[5vh]'>
         <?php
-        if (isset($size)) {
+        if (!isset($size)) {
+            echo "
+                <div id='root' class='grid grid-cols-2 justify-items-center gap-y-[5vh]'>
+                    <book-ticket class='block w-[80%]' id='def' w='80%' data='$dataEnc' fName='$fName' lName='$lName' dep='$dep' des='$des' color='[#D9ED92]'></book-ticket>
+                </div>
+                ";
+        } else {
             for ($i = 0; $i < $size; $i++) {
                 $colArray = [
                     "[#D9ED92]",
@@ -82,48 +64,24 @@ $dataEnc = json_encode($data);
                     "[#52B69A]"
                 ];
                 if ($i == 0) {
+                    $col = $colArray[$i];
+
                     echo "
-                        <div class='flex justify-center gap-x-[50px]'>
-                                <div class='bg-$colArray[$i] h-[22vh] w-[40%] rounded-[10px]'>
-                                    <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
-                                        <label for='firstName' class='ml-[15px]'>Voornaam:</label>
-                                        <input placeholder=' Voornaam' value=' $fName' type='text' name='fName' id='fName' class='text-gray-600 w-[25%] rounded-[8px]'>
-                            
-                                        <label for='lastName'>Achternaam:</label>
-                                        <input placeholder=' Achternaam' value=' $lName' type='text' name='lName' id='lName' class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>
-
-
-                                        <label for='Departure' class='ml-[15px]'>Vertrek</label>
-                                        <input value=' $dep' type='text' name='departure' id='fName' disabled class='w-[10%] mt-[20px] rounded-[8px] mr-[200px]'>
-
-                                        <label for='Destination'>Besteming</label>
-                                        <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>    
-                                </form>
-                            </div>
+                        <div class='flex justify-around w-[100%]'>
+                            <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' fName='$fName' lName='$lName' dep='$dep' des='$des' color='$col'></book-ticket>
                     ";
                 } else {
                     if ($i == 2) {
-                        echo "<div class='flex justify-center gap-x-[50px]'>";
+                        echo "<div class='flex justify-around w-[100%]'>";
                     } else if ($i == 4) {
                         echo "<div class='flex w-full justify-center'>";
                     }
+
+                    $col = $colArray[$i];
+
                     echo "
-                        <div class='bg-$colArray[$i] h-[22vh] w-[40%] flex justify-center rounded-[10px]'>
-                            <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
-                                <label for='firstName' class='ml-[15px]'>Voornaam:</label>
-                                <input placeholder=' Voornaam' type='text' name='fName' id='fName' class='w-[25%] text-gray-600 rounded-[8px]'>
-
-                    
-                                <label for='lastName'>Achternaam:</label>
-                                <input placeholder=' Achternaam' type='text' name='lName' id='lName' class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>
-
-                                <label for='Departure' class='ml-[15px]'>Vertrek</label>
-                                <input value=' $dep' type='text' name='departure' id='fName' disabled class='w-[10%] mt-[20px] rounded-[8px] mr-[200px]'>
-
-                                <label for='Destination'>Besteming</label>
-                                <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>
-                        </form>
-                    </div>";
+                        <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' dep='$dep' des='$des' color='$col'></book-ticket>
+                        ";
                     if ($i == 1 || $i == 3 || $i == 4) {
                         echo "</div>";
                     }
@@ -131,15 +89,28 @@ $dataEnc = json_encode($data);
                 }
 
             }
+
+
+        }
+
+        echo '
+                <div class="flex justify-center sticky bottom-0 mt-5">
+                    <a href="index.php?page=home" class="text-white bg-black w-[15vh] h-[5vh] rounded-[5px] text-center content-center mr-10 mb-10">Go back</a>
+                    <button type="submit" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px]">Book now!</button>
+            ';
+
+        if (!isset($size)) {
+            echo '
+                    <button id="add" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px] ml-10" type="submit">
+                        Add
+                    </button>
+                </div>
+            ';
+        } else {
+            echo '</div>';
         }
 
         ?>
-
-        <div class="flex justify-center">
-            <a href="index.php?page=home"
-                class="text-white bg-black w-[15vh] h-[5vh] rounded-[5px] text-center content-center mr-10 mb-10">Go
-                back</a>
-            <button type="submit" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px]">Book now!</button>
-        </div>
+    </div>
     <script src="assets/js/ticketSystem/ticketSystem.js"></script>
 </section>
