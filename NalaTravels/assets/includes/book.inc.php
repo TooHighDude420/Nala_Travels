@@ -42,6 +42,8 @@ $res = $database->getDataFromUser("toohighdude");
 
 $fName = $res[0]["fName"];
 $lName = $res[0]["lName"];
+$userID = $res[0]["UserID"];
+
 $dataEnc = json_encode($data);
 ?>
 
@@ -51,7 +53,7 @@ $dataEnc = json_encode($data);
         if (!isset($size)) {
             echo "
                 <div id='root' class='grid grid-cols-2 justify-items-center gap-y-[5vh]'>
-                    <book-ticket class='block w-[80%]' id='def' w='80%' data='$dataEnc' fName='$fName' lName='$lName' dep='$dep' des='$des' color='[#D9ED92]'></book-ticket>
+                    <book-ticket class='block w-[80%]' id='def' w='80%' data='$dataEnc' fName='$fName' lName='$lName' dep='$dep' des='$des' index='0' userID='$userID' color='[#D9ED92]'></book-ticket>
                 </div>
                 ";
         } else {
@@ -68,7 +70,7 @@ $dataEnc = json_encode($data);
 
                     echo "
                         <div class='flex justify-around w-[100%]'>
-                            <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' fName='$fName' lName='$lName' dep='$dep' des='$des' color='$col'></book-ticket>
+                            <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' fName='$fName' lName='$lName' index='$i' dep='$dep' des='$des' userID='$userID' color='$col'></book-ticket>
                     ";
                 } else {
                     if ($i == 2) {
@@ -80,7 +82,7 @@ $dataEnc = json_encode($data);
                     $col = $colArray[$i];
 
                     echo "
-                        <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' dep='$dep' des='$des' color='$col'></book-ticket>
+                        <book-ticket class='block w-[40%]' w='80%' data='$dataEnc' dep='$dep' des='$des' color='$col' index='$i' userID='$userID'></book-ticket>
                         ";
                     if ($i == 1 || $i == 3 || $i == 4) {
                         echo "</div>";
@@ -96,7 +98,7 @@ $dataEnc = json_encode($data);
         echo '
                 <div class="flex justify-center sticky bottom-0 mt-5">
                     <a href="index.php?page=home" class="text-white bg-black w-[15vh] h-[5vh] rounded-[5px] text-center content-center mr-10 mb-10">Go back</a>
-                    <button type="submit" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px]">Book now!</button>
+                    <button type="submit" onclick="collect()" class="text-white bg-black w-[20vh] h-[5vh] rounded-[5px]">Book now!</button>
             ';
 
         if (!isset($size)) {

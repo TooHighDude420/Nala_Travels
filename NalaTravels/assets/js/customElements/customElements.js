@@ -1,6 +1,6 @@
 class ticket extends HTMLElement {
     static get observedAttributes() {
-        return ["data", "fName", "lName", "dep", "des", "color", "w"];
+        return ["data", "fName", "lName", "dep", "des", "color", "index", "userID"];
     }
 
     constructor() {
@@ -19,7 +19,8 @@ class ticket extends HTMLElement {
         this.dep = this.getAttribute("dep");
         this.des = this.getAttribute("des");
         this.color = this.getAttribute("color");
-        this.width = this.getAttribute("w");
+        this.index = this.getAttribute("index");
+        this.userID = this.getAttribute("userID");
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -37,6 +38,15 @@ class ticket extends HTMLElement {
 
         const formHolder = document.createElement("div");
         this.form = document.createElement("form");
+        this.form.name = `form${this.index}`
+        this.form.id = `form${this.index}`
+
+        const idHolder = document.createElement("input");
+        idHolder.type = "hidden";
+        idHolder.id = "idHolder";
+        idHolder.value = `${this.userID}`;
+        idHolder.name = "idHolder";
+
 
         const fNameLabel = document.createElement("label");
         this.fNameInput = document.createElement("input");
@@ -97,7 +107,7 @@ class ticket extends HTMLElement {
 
         this.append(formHolder);
         formHolder.append(this.form);
-        this.form.append(fNameLabel, this.fNameInput, lNameLabel, this.lNameInput, depLabel, this.depInput, desLabel, this.desInput);
+        this.form.append(fNameLabel, this.fNameInput, lNameLabel, this.lNameInput, depLabel, this.depInput, desLabel, this.desInput, idHolder);
 
         this.attributeChangedCallback(); // trigger eerste rendering
     }
