@@ -38,7 +38,7 @@ if (isset($size)) {
 }
 
 
-$res = $database->getDataFromUser("toohighdude");
+$res = $database->getDataFromUser($_SESSION['username']);
 
 $fName = $res[0]["fName"];
 $lName = $res[0]["lName"];

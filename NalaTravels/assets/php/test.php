@@ -9,10 +9,12 @@ $database = new Database();
 $json = file_get_contents("php://input");
 $data = json_decode($json, true);
 
+var_dump($data);
+
 try {
     foreach ($data as $i) {
         $database->bookFlight(
-            $_SESSION['username'],
+            $i['idHolder'],
             $i['fName'],
             $i['lName'],
             $i['des'],

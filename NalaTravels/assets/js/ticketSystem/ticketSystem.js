@@ -69,5 +69,5 @@ function collect() {
 }
 
 function go(response) {
-  // header
+  window.location.href = "index.php?page=dashboard";
 }
