@@ -23,6 +23,11 @@ try {
 
         echo  "succes\n";
     }
+
+    $userData = $database->getDataFromUser($_SESSION['username']);
+
+    mail($userData[0]['email'], "vlucht succesvol geboekt", "uw vlucht naar $des is succesvol geboekt");
+    
 } catch (PDOException $e){
     echo "error:" . $e->getMessage();
 }

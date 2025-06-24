@@ -52,8 +52,8 @@
                             <a type="button" href="index.php?page=dashboard&sp=cars" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
                                 Autos
                             </a>
-                            <a type="button" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
-                                revieuws
+                            <a type="button" href="index.php?page=dashboard&sp=reviews" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                                reviews
                             </a> 
                         </div>
                     
