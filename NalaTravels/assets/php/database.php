@@ -26,6 +26,19 @@ class Database
         return $res;
     }
 
+    public function getStarData()
+    {
+        $stmt = Conn::$conn->prepare("
+            SELECT stars FROM reviews
+            WHERE valid = 1
+        ");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
     public function getFlights()
     {
         $stmt = Conn::$conn->prepare("SELECT * FROM flights");
@@ -108,7 +121,8 @@ class Database
         $stmt->execute();
     }
 
-    public function validateReview($reviewID){
+    public function validateReview($reviewID)
+    {
         $stmt = Conn::$conn->prepare("
             UPDATE reviews SET valid = 1 WHERE reviewID=:reviewID
         ");
@@ -118,7 +132,8 @@ class Database
         $stmt->execute();
     }
 
-    public function deleteReview($reviewID){
+    public function deleteReview($reviewID)
+    {
         $stmt = Conn::$conn->prepare("
             DELETE FROM reviews WHERE reviewID=:reviewID
         ");
