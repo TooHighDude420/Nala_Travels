@@ -235,7 +235,7 @@ class Database
             SELECT travelerID INTO @travelID FROM traveler WHERE userID=:userID AND fName=:fname AND lName=:lname;
             SELECT flightID INTO @flightID FROM flights WHERE destination=:destination AND departure=:departure;
             SELECT tripID INTO @tripID FROM trip WHERE flightID=@flightID;
-            INSERT INTO trips_travelers (travelerID, tripID) VALUES (@travelID, @tripID);
+            INSERT IGNORE INTO trips_travelers (travelerID, tripID) VALUES (@travelID, @tripID);
         ");
 
         $stmt->bindParam("userID", $userID);
