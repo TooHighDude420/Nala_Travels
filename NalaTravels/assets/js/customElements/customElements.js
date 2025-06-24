@@ -113,4 +113,47 @@ class ticket extends HTMLElement {
     }
 }
 
+class review extends HTMLElement {
+    static get observedAttributes() {
+        return ["name", "subject", "message"];
+    }
+
+    constructor() {
+        super();
+    }
+
+    setAttributes() {
+        this.name = this.getAttribute("name");
+        this.subject = this.getAttribute("subject");
+        this.message = this.getAttribute("message");
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+
+    }
+
+    connectedCallback() {
+        this.setAttributes();
+
+        const revHolder = document.createElement("div");
+        revHolder.classList = "size-48 bg-white flex flex-col rounded-[10px] pl-[8px] pt-[8px]";
+
+        const name = document.createElement("p");
+        name.classList = "text-lg";
+        name.textContent = `${this.name}`;
+
+        const subj = document.createElement("p");
+        subj.classList = "text-sm pt-[5px]";
+        subj.textContent = `${this.subject}`;
+
+        const mess = document.createElement("p");
+        mess.classList = "text-xs pt-[3px]";
+        mess.textContent = `${this.message}`;
+
+        this.append(revHolder);
+        revHolder.append(name, subj, mess);
+    }
+}
+
 customElements.define("book-ticket", ticket);
+customElements.define("review-block", review);

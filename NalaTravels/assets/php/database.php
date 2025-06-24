@@ -40,8 +40,8 @@ class Database
     public function getCars()
     {
         $stmt = Conn::$conn->prepare("
-        SELECT car.CarID, countries.CountryName, car.Price FROM car
-        INNER JOIN countries ON car.CountryID=countries.CountryID
+            SELECT car.CarID, countries.CountryName, car.Price FROM car
+            INNER JOIN countries ON car.CountryID=countries.CountryID
         ");
 
         $stmt->execute();
@@ -49,6 +49,83 @@ class Database
         $res = $stmt->fetchAll();
 
         return $res;
+    }
+
+    public function getUserRelBookings(int $userID)
+    {
+        $stmt = Conn::$conn->prepare("
+            SELECT traveler.Fname, traveler.Lname, flights.Destination, flights.Departure, trip.DateTime FROM trips_travelers
+            INNER join traveler ON trips_travelers.TravelerID = traveler.TravelerID
+            INNER JOIN trip ON trips_travelers.TripID = trip.TripID
+            INNER JOIN flights ON trip.FlightID = flights.FlightID
+            WHERE traveler.UserID = :userID
+        ");
+
+        $stmt->bindParam("userID", $userID);
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
+    public function getValidReviews()
+    {
+        $stmt = Conn::$conn->prepare("
+            SELECT * FROM reviews WHERE valid=1
+        ");
+
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
+    public function getReviewsForValidation()
+    {
+        $stmt = Conn::$conn->prepare("
+            SELECT * FROM reviews WHERE valid=0
+        ");
+
+        $stmt->execute();
+
+        $res = $stmt->fetchAll();
+
+        return $res;
+    }
+
+    public function insertReview(string $name, string $subject, string $message)
+    {
+        $stmt = Conn::$conn->prepare("
+            INSERT INTO reviews (name, subject, message, valid) VALUES (:name, :subject, :message, 0)
+        ");
+
+        $stmt->bindParam("name", $name);
+        $stmt->bindParam("subject", $subject);
+        $stmt->bindParam("message", $message);
+
+        $stmt->execute();
+    }
+
+    public function validateReview($reviewID){
+        $stmt = Conn::$conn->prepare("
+            UPDATE reviews SET valid = 1 WHERE reviewID=:reviewID
+        ");
+
+        $stmt->bindParam("reviewID", $reviewID);
+
+        $stmt->execute();
+    }
+
+    public function deleteReview($reviewID){
+        $stmt = Conn::$conn->prepare("
+            DELETE FROM reviews WHERE reviewID=:reviewID
+        ");
+
+        $stmt->bindParam("reviewID", $reviewID);
+
+        $stmt->execute();
     }
 
     public function getHotels()
