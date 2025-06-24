@@ -1,58 +1,73 @@
 const addBtn = document.getElementById("add");
-
 const root = document.getElementById("root");
+const defData = document.getElementById("def");
 
-var template = `
-    <div class='flex justify-center gap-x-[50px]'>
-        <div class='bg-[#D9ED92] h-[22vh] w-[40%] rounded-[10px]'>
-            <form action='assets/php/bookFlight.php?data=$dataEnc' method='post' class='mt-5'>
-                <label for='firstName' class='ml-[15px]'>Voornaam:</label>
-                <input placeholder=' Voornaam' value=' $fName' type='text' name='fName' id='fName'
-                    class='text-gray-600 w-[25%] rounded-[8px]'>
+var index = 1;
 
-                <label for='lastName'>Achternaam:</label>
-                <input placeholder=' Achternaam' value=' $lName' type='text' name='lName' id='lName'
-                    class='text-gray-600 mt-3 w-[25%] rounded-[8px]'>
+const colArray = [
+  "[#D9ED92]",
+  "[#B5E48C]",
+  "[#99D98C]",
+  "[#76CB93]",
+  "[#52B69A]"
+];
+
+if (addBtn != null) {
+  addBtn.onclick = function () {
+    const ticket = document.createElement("book-ticket");
+
+    ticket.setAttribute("index", index);
+    ticket.setAttribute("data", defData.data);
+    ticket.setAttribute("color", colArray[randomInt(0, 4)]);
+    ticket.setAttribute("des", defData.des);
+    ticket.setAttribute("dep", defData.dep);
+    ticket.setAttribute("userID", defData.userID);
 
 
-                <label for='Departure' class='ml-[15px]'>Vertrek</label>
-                <input value=' $dep' type='text' name='departure' id='fName' disabled
-                    class='w-[10%] mt-[20px] rounded-[8px] mr-[200px]'>
+    ticket.classList = "w-[80%]";
 
-                <label for='Destination'>Besteming</label>
-                <input value=' $des' type='text' name='destination' id='fName' disabled class='w-[10%] rounded-[8px]'>
-            </form>
-        </div>
-`;
+    root.append(ticket);
 
-addBtn.onclick = function(){
-    const holder = document.createElement("div");
-    const formHolder = document.createElement("div");
-    const form = document.createElement("form");
-    const fNameLabel = document.createElement("label");
-    const fNameInput = document.createElement("input");
-    const lNameLabel = document.createElement("label");
-    holder.classList = "flex justify-center gap-x-[50px]";
-    formHolder.classList = "bg-[#D9ED92] h-[22vh] w-[40%] rounded-[10px]";
-    form.action = "assets/php/bookFlight.php?data=$dataEnc";
-    form.method = "post";
-    form.classList = "mt-5";
-    fNameLabel.for = "firstName";
-    fNameLabel.classList = "ml-[15px]";
-    fNameLabel.textContent = "Voornaam:";
-    fNameInput.placeholder = " Voornaam:";
-    fNameInput.value = "$fname"
-    fNameInput.type = "text";
-    fNameInput.name = "fName";
-    fNameInput.id = "fName";
-    fNameInput.classList = "text-gray-600 w-[25%] rounded-[8px]";
-    lNameLabel.for = "lastName";
-    lNameLabel.textContent = "Achternaam:";
-    root.append(holder);
-    holder.append(formHolder);
-    formHolder.append(form);
-    form.append(fNameLabel);
-    form.append(fNameInput);
-    form.append(lNameLabel);
+    index++;
+  }
+}
 
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function collect() {
+  var safeGuard = 100;
+  let index = 0;
+  const forms = [];
+
+  while (document.getElementById(`form${index}`)) {
+    const formData = new FormData(document.getElementById(`form${index}`));
+    const formEntries = {};
+    for (let [key, value] of formData.entries()) {
+      formEntries[key] = value;
+    }
+    formEntries["des"] = defData.des;
+    formEntries["dep"] = defData.dep;
+    forms.push(formEntries); // Push per formulier als object
+    index++;
+  }
+
+  const json = JSON.stringify(forms);
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "./assets/php/test.php", true);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      go(this.responseText);
+    }
+  };
+
+  xhttp.send(json);
+}
+
+function go(response) {
+  window.location.href = "index.php?page=dashboard";
 }

@@ -136,21 +136,19 @@ class Database
      * @param string $dep
      * @return void
      */
-    public function bookFlight(string $username, string $fName, string $lName, string $des, string $dep)
+    public function bookFlight(string $userID, string $fName, string $lName, string $des, string $dep)
     {
         $stmt = Conn::$conn->prepare("
-            INSERT INTO traveler (userID, Fname, Lname) VALUES (:userID, :fname, :lname);
-            INSERT INTO trips_travelers (travelerID, tripID) VALUES (:travelerID, :tripID);
+            INSERT IGNORE INTO traveler (userID, Fname, Lname) VALUES (:userID, :fname, :lname);
+            SELECT travelerID INTO @travelID FROM traveler WHERE userID=:userID AND fName=:fname AND lName=:lname;
+            SELECT flightID INTO @flightID FROM flights WHERE destination=:destination AND departure=:departure;
+            SELECT tripID INTO @tripID FROM trip WHERE flightID=@flightID;
+            INSERT INTO trips_travelers (travelerID, tripID) VALUES (@travelID, @tripID);
         ");
 
-        $userID = $this->getUserID($username)[0]['userID'];
-        $flightID = $this->getFlightID($des, $dep)[0]['flightID'];
-        $travelerID = $this->getTravelerID($fName, $lName, $userID)[0]['travelerID'];
-        $tripID = $this->getTripID($flightID);
-
         $stmt->bindParam("userID", $userID);
-        $stmt->bindParam("travelerID", $travelerID);
-        $stmt->bindParam("tripID", $tripID[0]['tripID']);
+        $stmt->bindParam("destination", $des);
+        $stmt->bindParam("departure", $dep);
         $stmt->bindParam("fname", $fName);
         $stmt->bindParam("lname", $lName);
         $stmt->execute();
