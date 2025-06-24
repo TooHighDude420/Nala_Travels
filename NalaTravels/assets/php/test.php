@@ -9,8 +9,6 @@ $database = new Database();
 $json = file_get_contents("php://input");
 $data = json_decode($json, true);
 
-var_dump($data);
-
 try {
     foreach ($data as $i) {
         $database->bookFlight(
@@ -27,7 +25,7 @@ try {
     $userData = $database->getDataFromUser($_SESSION['username']);
 
     mail($userData[0]['email'], "vlucht succesvol geboekt", "uw vlucht naar $des is succesvol geboekt");
-    
+
 } catch (PDOException $e){
     echo "error:" . $e->getMessage();
 }
