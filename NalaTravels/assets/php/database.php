@@ -342,4 +342,36 @@ class Database
 
         return $res;
     }
+
+    public function validateReset($fname, $lname, $email, $username)
+    {
+        $sth = Conn::$conn->prepare("SELECT * FROM users WHERE fName = :fname AND lName = :lname AND email = :email AND username = :user");
+
+        $sth->bindParam('fname', $fname);
+        $sth->bindParam('lname', $lname);
+        $sth->bindParam('email', $email);
+        $sth->bindParam('user', $username);
+
+        $sth->execute();
+
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        if (sizeof($res) == 0) {
+            return null;
+        } else {
+            return $res;
+        }
+    }
+
+    public function updatePassword(string $userID,string $value)
+    {
+        $hashedPass = password_hash($value, PASSWORD_DEFAULT);
+
+        $sth = Conn::$conn->prepare("UPDATE users SET password=:pass WHERE userID = :userID");
+
+        $sth->bindParam('pass', $hashedPass);
+        $sth->bindParam('userID', $userID);
+        
+        $sth->execute();
+    }
 }
