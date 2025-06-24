@@ -7,7 +7,7 @@
             </div>
 
             <form id="leftAction" action="" method="post">
-                <div id="leftCardEnt" class="h-[20vh] w-[15%]">
+                <div id="leftCardEnt" class="h-[20vh] w-[100%]">
                     <div id="leftHeader"
                         class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
                         <h1 id="leftTitle"></h1>
@@ -24,40 +24,42 @@
                 </div>
             </form>
 
-
-            <div id="centerCardEnt" class="h-[25vh] w-[15%]">
-                <div id="middleHeader"
-                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="centerTitle"></h1>
-                </div>
-                <div id="middleContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="centerImage" src="" alt="" class="h-full w-full">
+            <form id="centerAction" action="" method="post">
+                <div id="centerCardEnt" class="h-[25vh] w-[100%]">
+                    <div id="middleHeader"
+                        class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="centerTitle"></h1>
                     </div>
-                    <div class="flex justify-between">
-                        <p id="centerPrice"></p>
-                        <button>boek nu!</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div id="rightCardEnt" class="h-[25vh] w-[15%]">
-                <div id="rightHeader"
-                    class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="rightTitle"></h1>
-                </div>
-                <div id="rightContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="rightImage" src="" alt="" class="h-full w-full">
-                    </div>
-                    <div class="flex justify-between">
-                        <p id="rightPrice"></p>
-                        <button>boek nu!</button>
+                    <div id="middleContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="centerImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="centerPrice"></p>
+                            <button>boek nu!</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
+
+            <form id="rightAction" action="" method="post">
+                <div id="rightCardEnt" class="h-[25vh] w-[100%]">
+                    <div id="rightHeader"
+                        class="h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="rightTitle"></h1>
+                    </div>
+                    <div id="rightContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="rightImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="rightPrice"></p>
+                            <button>boek nu!</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
             <div class="mt-12">
                 <img onclick="test.prevCard()" src="assets/img/cards/ArrowRight.png" alt="RightArrow">
@@ -139,8 +141,8 @@
     <script>
         const test = new CarrMain(
             ["leftCardEnt", "leftTitle", "leftImage", "leftHeader", "leftPrice", "leftAction"],
-            ["centerCardEnt", "centerTitle", "centerImage", "middleHeader", "centerPrice"],
-            ["rightCardEnt", "rightTitle", "rightImage", "rightHeader", "rightPrice"]
+            ["centerCardEnt", "centerTitle", "centerImage", "middleHeader", "centerPrice", "centerAction"],
+            ["rightCardEnt", "rightTitle", "rightImage", "rightHeader", "rightPrice", "rightAction"]
         );
 
         test.grabData("././assets/php/ajax/cardDataAjax.php");
