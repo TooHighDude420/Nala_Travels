@@ -9,8 +9,9 @@ class Card {
     destination = "";
     departure = "";
     actionLink = "./assets/php/checkLogin.php?data="
+    disc = "";
 
-    constructor(title, img, index, color, price, destination, departure, actionLink) {
+    constructor(title, img, index, color, price, destination, departure, actionLink, disc) {
         this.title = title;
         this.alt = img;
         this.img = "assets/img/cards/" + img;
@@ -20,6 +21,7 @@ class Card {
         this.destination = destination;
         this.departure = departure;
         this.actionLink += actionLink;
+        this.disc = disc;
     }
 
     toString() {
