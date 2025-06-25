@@ -20,7 +20,7 @@ class Carroussel {
             console.log(dataEnc);
 
             if (data[i].CountryName != undefined) {
-                this.cardList.push(new Card(data[i].CountryName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price, data[i].departure, data[i].destination, dataEnc));
+                this.cardList.push(new Card(data[i].CountryName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price, data[i].departure, data[i].destination, dataEnc, data[i].CountryDisc));
             } else {
                 this.cardList.push(new Card(data[i].dealName, data[i].ImageLoc, i, colors[Math.floor(Math.random() * 2)], data[i].price));
             }

@@ -1,4 +1,18 @@
 <section class="h-[80vh]">
+    <div class="modal dark:bg-gray-800 dark:border-gray-700 dark:text-white" id="modalTot">
+        <div class="modal-header">
+            <b class="modal-title" id="modalTitle"></b>
+            <span class="modal-button" id="modalClose">
+                X
+            </span>
+        </div>
+        <div class="modal-img" id="modalImage">
+            <img class="max-h-[30vh] max-w-[100%]" src="" alt="">
+        </div>
+        <div class="modal-text" id="modalText">
+            <p></p>
+        </div>
+    </div>
     <div id="locationsHolder" class="pt-[20px] pl-[20px]">
         <h1>Uitgelichte Locaties</h1>
         <div id="cardHolder" class="flex gap-x-[5%] justify-center pl-[0px]">
@@ -74,55 +88,60 @@
                 <img onclick="testDeals.nextCard()" src="assets/img/cards/ArrowLeft.png" alt="LeftArrow">
             </div>
 
-            <div id="dealLeftCardEnt" class="h-[20vh] w-[15%]">
-                <div id="dealLeftHeader"
-                    class="bg-[#76C893] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="dealLeftTitle"></h1>
-                </div>
-                <div id="dealLeftContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="dealLeftImage" src="" alt="" class="h-full w-full">
+            <form id="leftDealAction" action="" method="post">
+                <div id="dealLeftCardEnt" class="h-[20vh] w-[100%]">
+                    <div id="dealLeftHeader"
+                        class="bg-[#76C893] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="dealLeftTitle"></h1>
                     </div>
-                    <div class="flex justify-between">
-                        <p id="leftDealPrice"></p>
-                        <button>boek nu!</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="dealCenterCardEnt" class="h-[25vh] w-[15%]">
-                <div id="dealCenterHeader"
-                    class="bg-[#52B69A] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="dealCenterTitle"></h1>
-                </div>
-                <div id="middleContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="dealCenterImage" src="" alt="" class="h-full w-full">
-                    </div>
-                    <div class="flex justify-between">
-                        <p id="centerDealPrice"></p>
-                        <button>boek nu!</button>
+                    <div id="dealLeftContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="dealLeftImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="leftDealPrice"></p>
+                            <button>boek nu!</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
 
+            <form id="centerDealAction" action="" method="post">
+                <div id="dealCenterCardEnt" class="h-[25vh] w-[100%]">
+                    <div id="dealCenterHeader"
+                        class="bg-[#52B69A] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="dealCenterTitle"></h1>
+                    </div>
+                    <div id="middleContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="dealCenterImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="centerDealPrice"></p>
+                            <button>boek nu!</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
-            <div id="dealRightCardEnt" class="h-[25vh] w-[15%]">
-                <div id="dealRightHeader"
-                    class="bg-[#99D98C] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
-                    <h1 id="dealRightTitle"></h1>
-                </div>
-                <div id="dealRightContent">
-                    <div class="w-full h-[20vh] bg-black">
-                        <img id="dealRightImage" src="" alt="" class="h-full w-full">
+            <form id="rightDealAction" action="" method="post">
+                <div id="dealRightCardEnt" class="h-[25vh] w-[100%]">
+                    <div id="dealRightHeader"
+                        class="bg-[#99D98C] h-[5vh] rounded-tl-md rounded-tr-md flex flex-col content-center justify-center flex-wrap">
+                        <h1 id="dealRightTitle"></h1>
                     </div>
-                    <div class="flex justify-between">
-                        <p id="rightDealPrice"></p>
-                        <button>boek nu!</button>
+                    <div id="dealRightContent">
+                        <div class="w-full h-[20vh] bg-black">
+                            <img id="dealRightImage" src="" alt="" class="h-full w-full">
+                        </div>
+                        <div class="flex justify-between">
+                            <p id="rightDealPrice"></p>
+                            <button>boek nu!</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <div class="mt-12">
                 <img onclick="testDeals.prevCard()" src="assets/img/cards/ArrowRight.png" alt="RightArrow">
@@ -148,11 +167,12 @@
         test.grabData("././assets/php/ajax/cardDataAjax.php");
 
         const testDeals = new CarrMain(
-            ["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage", "dealLeftHeader", "leftDealPrice"],
-            ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader", "centerDealPrice"],
-            ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader", "rightDealPrice"]
+            ["dealLeftCardEnt", "dealLeftTitle", "dealLeftImage", "dealLeftHeader", "leftDealPrice", "leftDealAction"],
+            ["dealCenterCardEnt", "dealCenterTitle", "dealCenterImage", "dealCenterHeader", "centerDealPrice", "centerDealAction"],
+            ["dealRightCardEnt", "dealRightTitle", "dealRightImage", "dealRightHeader", "rightDealPrice", "rightDealAction"]
         );
 
         testDeals.grabData("././assets/php/ajax/grabDealDataAjax.php");
     </script>
+    <script src="assets/js/modal/modal.js"></script>
 </section>
