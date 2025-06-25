@@ -16,11 +16,11 @@
                 <a href="index.php?page=dashboard&sp=home">
                     <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
                 </a>
-                    <div class="flex content-center flex-wrap">
-                        <a type="button" href="index.php?page=dashboard&sp=bookings" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] h-fit">
+                    <div class="flex items-center w-[40%]">
+                        <a type="button" href="index.php?page=dashboard&sp=bookings" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[45%] h-fit">
                             Boekingen
                         </a>
-                        <a type="button" href="index.php?page=dashboard&sp=editprofile" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] h-fit">
+                        <a type="button" href="index.php?page=dashboard&sp=editprofile" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[45%] h-fit">
                             Profiel bijwerken
                         </a>
                     </div>
@@ -40,19 +40,19 @@
                         <img src="assets/img/header/logo.png" alt="logo" class="size-24 m-2 mt-1">
                     </a>
                         <div class="flex content-center flex-wrap">
-                            <a type="button" href="index.php?page=dashboard&sp=trips" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                            <a type="button" href="index.php?page=dashboard&sp=trips" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">
                                 Trips
                             </a>
-                            <a type="button" href="index.php?page=dashboard&sp=flights" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                            <a type="button" href="index.php?page=dashboard&sp=flights" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">
                                 Vluchten
                             </a>
-                            <a type="button" href="index.php?page=dashboard&sp=hotels" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                            <a type="button" href="index.php?page=dashboard&sp=hotels" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">
                                 Hotels
                             </a>
-                            <a type="button" href="index.php?page=dashboard&sp=cars" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                            <a type="button" href="index.php?page=dashboard&sp=cars" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">
                                 Autos
                             </a>
-                            <a type="button" href="index.php?page=dashboard&sp=reviews" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">
+                            <a type="button" href="index.php?page=dashboard&sp=reviews" class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">
                                 reviews
                             </a> 
                         </div>
@@ -76,14 +76,14 @@
                         <div class="boven flex content-center flex-wrap w-[80%]">
                             <div class="flex">
                                 <button type="button" id="vluchten" onclick="flightsActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">Vluchten</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%] active">Vluchten</button>
                                 <button type="button" id="verblijven" onclick="staysActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijven</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">Verblijven</button>
                                 <button type="button" id="verblijfVlucht" onclick="combiActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijf
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">Verblijf
                                     + Vlucht</button>
                                 <button type="button" id="excursie" onclick="excursionActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Excursies</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[40%]">Excursies</button>
                             </div>
                         </div>
                         <form action="assets/php/search.php" method="post"
@@ -116,8 +116,8 @@
                             </div>
                             <button type="submit">
                                 <div
-                                    class="bg-[#B5E48C] h-[35px] w-[35px] rounded flex flex-wrap content-center justify-center">
-                                    <img src="assets/img/header/search.png" alt="search" class="h-[80%] w-[80%]] allign-center">
+                                    class="bg-[#B5E48C] h-[35px] w-[30%] rounded flex flex-wrap content-center justify-center">
+                                    <img src="assets/img/header/search.png" alt="search" class="h-[80%] w-[80%] allign-center">
                                 </div>
                             </button>
                         </form>
@@ -140,17 +140,17 @@
 
                 <div class="flex flex-col justify-around">
                     <div>
-                        <div class="boven flex content-center flex-wrap w-[80%]">
-                            <div class="flex">
+                        <div class="boven flex content-center flex-wrap w-full">
+                            <div class="flex justify-around w-[100%]">
                                 <button type="button" id="vluchten" onclick="flightsActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh] active">Vluchten</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[25%] h-[5vh] active">Vluchten</button>
                                 <button type="button" id="verblijven" onclick="staysActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijven</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[25%] h-[5vh]">Verblijven</button>
                                 <button type="button" id="verblijfVlucht" onclick="combiActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Verblijf
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[25%] h-[5vh]">Verblijf
                                     + Vlucht</button>
                                 <button type="button" id="excursie" onclick="excursionActive()"
-                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[35vh]">Excursies</button>
+                                    class="text-white bg-[#168AAD] hover:border-white hover:border-2 font-small rounded-[10px] text-xxs text-center me-2 mb-2 w-[25%] h-[5vh]">Excursies</button>
                             </div>
                         </div>
                         <form action="assets/php/search.php" method="post"
@@ -182,15 +182,14 @@
                                     placeholder="Select date">
                             </div>
                             <button type="submit">
-                                <div
-                                    class="bg-[#B5E48C] h-[35px] w-[35px] rounded flex flex-wrap content-center justify-center">
-                                    <img src="assets/img/header/search.png" alt="search" class="h-[80%] w-[80%]] allign-center">
+                                <div class="bg-[#B5E48C] h-[35px] w-[130%] rounded flex flex-wrap content-center justify-center">
+                                    <img src="assets/img/header/search.png" alt="search" class="h-[80%] w-[80%] allign-center">
                                 </div>
                             </button>
                         </form>
                     </div>
                 </div>
-                <div class="text-white flex mt-1">
+                <div class="text-white flex mt-1 h-[3vh]">
                     <a href="index.php?page=overons" class="mr-5">over ons</a>
                     <a href="index.php?page=login" class="mr-5">login</a>
                 </div>
