@@ -166,14 +166,16 @@ class Database
     public function search(string $departure, string $destination, string $grp)
     {
         $stmt = Conn::$conn->prepare("
-            SELECT trip.TripID, flights.Destination, flights.Departure, flights.FreeSeats, flights.Price, countries.ImageLoc, countries.CountryDisc
+            SELECT trip.TripID, flights.Destination, flights.Departure, flights.FreeSeats, flights.Price, c1.ImageLoc, c1.CountryDisc
             FROM trip 
             INNER JOIN flights ON trip.FlightID=flights.FlightID 
-            INNER JOIN countries ON flights.Destination=countries.Airport
-            WHERE (Destination=:a OR Departure=:d) OR CountryName=:dalt AND FreeSeats>:grp");
+            INNER JOIN countries AS c1 ON flights.Destination=c1.Airport
+            INNER JOIN countries AS c2 ON flights.Departure=c2.Airport
+            WHERE ((flights.Destination=:a OR flights.Departure=:d) OR (c1.CountryName=:dalt OR c2.CountryName=:depalt)) AND FreeSeats>:grp;");
 
         $stmt->bindParam("d", $departure);
         $stmt->bindParam("dalt", $destination);
+        $stmt->bindParam("depalt", $departure);
         $stmt->bindParam("a", $destination);
         $stmt->bindParam("grp", $grp);
 
@@ -373,5 +375,21 @@ class Database
         $sth->bindParam('userID', $userID);
         
         $sth->execute();
+    }
+
+    public function getTrips(){
+        $sth = Conn::$conn->prepare("
+            SELECT trip.tripID, f.Destination, f.Departure, f.FreeSeats, f.Price, trip.DateTime, h.HotelID, c.CarID, co.CountryName FROM trip
+            LEFT JOIN flights AS f ON trip.FlightID=f.FlightID
+            LEFT JOIN hotel AS h ON trip.HotelID=h.HotelID
+            LEFT JOIN car AS c ON trip.CarID=c.CarID
+            LEFT JOIN countries AS co ON h.CountryID=co.CountryID
+        ");
+
+        $sth->execute();
+
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
     }
 }

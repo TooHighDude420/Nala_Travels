@@ -81,6 +81,8 @@ class CarrMain {
     }
 
     setCards() {
+        let global = this;
+
         this.leftCardTotal.Title.textContent = this.carro.getActiveCards()[0].title;
         this.leftCardTotal.Image.src = this.carro.getActiveCards()[0].img;
         this.leftCardTotal.Image.alt = this.carro.getActiveCards()[0].alt;
@@ -89,9 +91,9 @@ class CarrMain {
         this.leftCardTotal.Header.classList.add(this.leftCardTotal.Color);
         this.leftCardTotal.Ent.onclick = function () {
             setModalContent([
-                this.carro.getActiveCards()[0].title,
-                this.carro.getActiveCards()[0].img,
-                this.carro.getActiveCards()[0].long_disc
+                global.carro.getActiveCards()[0].title,
+                global.carro.getActiveCards()[0].img,
+                global.carro.getActiveCards()[0].disc
             ]);
         }
 
@@ -104,9 +106,9 @@ class CarrMain {
         this.centerCardTotal.Header.classList.add(this.centerCardTotal.Color);
         this.centerCardTotal.Ent.onclick = function () {
             setModalContent([
-                this.carro.getActiveCards()[1].title,
-                this.carro.getActiveCards()[1].img,
-                this.carro.getActiveCards()[1].long_disc
+                global.carro.getActiveCards()[1].title,
+                global.carro.getActiveCards()[1].img,
+                global.carro.getActiveCards()[1].disc
             ]);
         }
 
@@ -118,9 +120,9 @@ class CarrMain {
         this.rightCardTotal.Header.classList.add(this.rightCardTotal.Color);
         this.rightCardTotal.Ent.onclick = function () {
             setModalContent([
-                this.carro.getActiveCards()[2].title,
-                this.carro.getActiveCards()[2].img,
-                this.carro.getActiveCards()[2].long_disc
+                global.carro.getActiveCards()[2].title,
+                global.carro.getActiveCards()[2].img,
+                global.carro.getActiveCards()[2].disc
             ]);
         }
     }

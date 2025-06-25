@@ -1,28 +1,81 @@
 .julius-sans-one-regular {
-    font-family: "Julius Sans One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .inputFields {
-    border-radius: 8px;
-    height: 5vh;
+  border-radius: 8px;
+  height: 5vh;
 }
 
 .active {
-    border-width: 2px;
+  border-width: 2px;
 }
 
 .login {
-    background-image: url(../img/login/bg.png);
-    background-size: 100% auto;
+  background-image: url(../img/login/bg.png);
+  background-size: 100% auto;
 }
 
 .inputFields {
-    border-radius: 2%;
-    height: 5vh;
+  border-radius: 2%;
+  height: 5vh;
 }
 
-.bg-col-login{
-    background-color: rgba(52, 160, 164, 0.5);
+.bg-col-login {
+  background-color: rgba(52, 160, 164, 0.5);
+}
+
+.modal {
+  display: none;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black !important;
+  top: 18vh;
+  background-color: grey;
+  position: absolute;
+  height: fit-content;
+  width: 75%;
+  border-radius: 20px;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3%;
+  height: 5vh;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-width: 3px;
+  border-color: black;
+}
+
+.modal-title {
+  padding-left: 2%;
+  font-size: 20px;
+}
+
+.modal-button {
+  padding-right: 2%;
+  font-size: 20px;
+}
+
+.modal-img {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-text {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 90%;
+  font-size: large;
 }
