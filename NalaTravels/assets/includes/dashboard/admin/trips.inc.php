@@ -150,10 +150,10 @@
                             <td class='px-6 py-4'>$CarID</td>
                             <td class='px-6 py-4'>$CountryName</td>
                             <td id='edit' class='px-6 py-4 text-right'>
-                                <a class='font-medium text-white hover:underline'>Edit</a>
+                                <a onclick='edit($tripID)' class='font-medium text-white hover:underline'>Edit</a>
                             </td>
                             <td id='delete' class='px-6 py-4 text-right'>
-                                <a class='font-medium text-white'>Delete</a>
+                                <a onclick='delete($tripID)' class='font-medium text-white'>Delete</a>
 
                             </td>
                         </tr>
