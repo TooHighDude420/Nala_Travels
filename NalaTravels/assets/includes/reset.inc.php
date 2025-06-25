@@ -21,7 +21,9 @@
             </div>
             <div>
                 <a href="index.php?page=login"
-                    class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Back</button>
+                    class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">
+                    Back
+                </a>
                 <button type="submit"
                     class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Reset!</button>
 
