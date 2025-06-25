@@ -20,7 +20,7 @@
                 <input type="text" name="lName" placeholder=" Last name" class="rounded-[5px] h-[4vh]">
             </div>
             <div>
-                <button type="submit"
+                <a href="index.php?page=login"
                     class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Back</button>
                 <button type="submit"
                     class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Reset!</button>
