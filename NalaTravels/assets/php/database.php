@@ -64,24 +64,6 @@ class Database
         return $res;
     }
 
-    public function getUserRelBookings(int $userID)
-    {
-        $stmt = Conn::$conn->prepare("
-            SELECT traveler.Fname, traveler.Lname, flights.Destination, flights.Departure, trip.DateTime FROM trips_travelers
-            INNER join traveler ON trips_travelers.TravelerID = traveler.TravelerID
-            INNER JOIN trip ON trips_travelers.TripID = trip.TripID
-            INNER JOIN flights ON trip.FlightID = flights.FlightID
-            WHERE traveler.UserID = :userID
-        ");
-
-        $stmt->bindParam("userID", $userID);
-        $stmt->execute();
-
-        $res = $stmt->fetchAll();
-
-        return $res;
-    }
-
     public function getValidReviews()
     {
         $stmt = Conn::$conn->prepare("
@@ -429,6 +411,26 @@ class Database
             LEFT JOIN hotel AS h ON t.HotelID=h.HotelID
             LEFT JOIN car AS c ON t.CarID=c.CarID
         ");
+
+        $sth->execute();
+
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getBookings($userID)
+    {
+        $sth = Conn::$conn->prepare("
+            SELECT tt.Trips_TravelersID, f.Destination, f.Departure, tr.Fname, tr.Lname
+            FROM trips_travelers  AS tt
+            INNER JOIN trip AS t ON t.TripID=tt.TripID
+            INNER JOIN flights AS f ON f.FlightID=t.FlightID
+            INNER JOIN traveler AS tr ON tr.TravelerID=tt.TravelerID
+            WHERE UserID = :usrID
+        ");
+
+        $sth->bindParam(":usrID", $userID);
 
         $sth->execute();
 

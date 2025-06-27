@@ -3,18 +3,18 @@
         <?php
         $usrData = $database->getDataFromUser($_SESSION['username']);
 
-    
-        $bookings = $database->getUserRelBookings($usrData[0]['UserID']);
-        
+
+        $bookings = $database->getBookings($usrData[0]['UserID']);
+
         $i = 0;
-        
-        foreach($bookings as $booking){
+
+        foreach ($bookings as $booking) {
             $bookNum = array_keys($bookings)[$i] + 1;
-            $fName = $booking[0];
-            $lName = $booking[1];
-            $des = $booking[2];
-            $dep = $booking[3];
-            $dt = $booking[4];
+            $ttID = $booking["Trips_TravelersID"];
+            $des = $booking["Destination"];
+            $dep = $booking["Departure"];
+            $fName = $booking["Fname"];
+            $lName = $booking["Lname"];
 
             echo "
                 <div class='bg-gray-300'>
@@ -27,9 +27,9 @@
                     <div>
                         $dep $des
                     </div>
-                    <div>
-                        $dt
-                    </div>
+                    <button onclick='deleteBooking($ttID)'>
+                        cancel!
+                    </button>
                 </div>
             ";
 
@@ -39,3 +39,6 @@
         ?>
     </div>
 </section>
+<script src="assets/js/modules/ajax.js"></script>
+<script src="assets/js/modules/transform.js"></script>
+<script src="assets/js/bookings/deleteBooking.js"></script>
