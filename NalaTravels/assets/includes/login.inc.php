@@ -20,12 +20,12 @@
                 <input type="password" name="password" placeholder=" Password" class="rounded-[5px]">
             </div>
             <div class="flex justify-evenly w-[80%]">
-                <button type="submit" class="text-white bg-black w-[10vh] h-[5vh] rounded-[5px]">Login</button>
+                <button type="submit" class="text-white bg-black w-[15%] h-[5vh] rounded-[5px]">Login</button>
                 <a href="index.php?page=reset"
-                    class="text-white bg-black w-fit h-[5vh] rounded-[5px] text-center content-center">Wachtwoord
+                    class="text-white bg-black w-[55%] h-[5vh] rounded-[5px] text-center content-center">Wachtwoord
                     vergeten</a>
                 <a href="index.php?page=register"
-                    class="text-white bg-black w-[13vh] h-[5vh] rounded-[5px] text-center content-center">Register</a>
+                    class="text-white bg-black w-[20%] h-[5vh] rounded-[5px] text-center content-center">Register</a>
 
 
             </div>

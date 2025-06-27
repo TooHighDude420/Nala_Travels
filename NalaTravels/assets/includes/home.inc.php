@@ -1,5 +1,5 @@
 <section class="h-[80vh]">
-    <div class="modal dark:bg-gray-800 dark:border-gray-700 dark:text-white" id="modalTot">
+    <div class="modal bg-[#52B69A] w-[40%] ml-[30%]" id="modalTot">
         <div class="modal-header">
             <b class="modal-title" id="modalTitle"></b>
             <span class="modal-button" id="modalClose">
