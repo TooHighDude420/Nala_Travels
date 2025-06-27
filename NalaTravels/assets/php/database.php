@@ -64,24 +64,6 @@ class Database
         return $res;
     }
 
-    public function getUserRelBookings(int $userID)
-    {
-        $stmt = Conn::$conn->prepare("
-            SELECT traveler.Fname, traveler.Lname, flights.Destination, flights.Departure, trip.DateTime FROM trips_travelers
-            INNER join traveler ON trips_travelers.TravelerID = traveler.TravelerID
-            INNER JOIN trip ON trips_travelers.TripID = trip.TripID
-            INNER JOIN flights ON trip.FlightID = flights.FlightID
-            WHERE traveler.UserID = :userID
-        ");
-
-        $stmt->bindParam("userID", $userID);
-        $stmt->execute();
-
-        $res = $stmt->fetchAll();
-
-        return $res;
-    }
-
     public function getValidReviews()
     {
         $stmt = Conn::$conn->prepare("
@@ -365,7 +347,7 @@ class Database
         }
     }
 
-    public function updatePassword(string $userID,string $value)
+    public function updatePassword(string $userID, string $value)
     {
         $hashedPass = password_hash($value, PASSWORD_DEFAULT);
 
@@ -373,11 +355,12 @@ class Database
 
         $sth->bindParam('pass', $hashedPass);
         $sth->bindParam('userID', $userID);
-        
+
         $sth->execute();
     }
 
-    public function getTrips(){
+    public function getTrips()
+    {
         $sth = Conn::$conn->prepare("
             SELECT trip.tripID, f.Destination, f.Departure, f.FreeSeats, f.Price, trip.DateTime, h.HotelID, c.CarID, co.CountryName FROM trip
             LEFT JOIN flights AS f ON trip.FlightID=f.FlightID
@@ -391,5 +374,77 @@ class Database
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         return $res;
+    }
+
+    public function deleteTrip($id)
+    {
+        $sth = Conn::$conn->prepare("
+            DELETE FROM trip WHERE tripID=:id
+        ");
+
+        $sth->bindParam('id', $id);
+
+        $sth->execute();
+    }
+
+    public function updateTrip($price, $id)
+    {
+        $sth = Conn::$conn->prepare("
+            SELECT FlightID FROM trip WHERE tripID = :id INTO @fID;
+            UPDATE flights SET price =:price WHERE flightID = @fID
+        ");
+
+        $sth->bindParam('id', $id);
+        $sth->bindParam('price', $price);
+
+        $sth->execute();
+    }
+
+    public function getBookedTrips()
+    {
+        $sth = Conn::$conn->prepare("
+            SELECT tt.Trips_TravelersID, f.Destination, f.Departure, tr.Fname, tr.Lname, c.CarID, h.HotelID
+            FROM trips_travelers  AS tt
+            INNER JOIN trip AS t ON t.TripID=tt.TripID
+            INNER JOIN flights AS f ON f.FlightID=t.FlightID
+            INNER JOIN traveler AS tr ON tr.TravelerID=tt.TravelerID
+            LEFT JOIN hotel AS h ON t.HotelID=h.HotelID
+            LEFT JOIN car AS c ON t.CarID=c.CarID
+        ");
+
+        $sth->execute();
+
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function getBookings($userID)
+    {
+        $sth = Conn::$conn->prepare("
+            SELECT tt.Trips_TravelersID, f.Destination, f.Departure, tr.Fname, tr.Lname
+            FROM trips_travelers  AS tt
+            INNER JOIN trip AS t ON t.TripID=tt.TripID
+            INNER JOIN flights AS f ON f.FlightID=t.FlightID
+            INNER JOIN traveler AS tr ON tr.TravelerID=tt.TravelerID
+            WHERE UserID = :usrID
+        ");
+
+        $sth->bindParam(":usrID", $userID);
+
+        $sth->execute();
+
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function deleteBooking($trips_travelersID)
+    {
+        $sth = Conn::$conn->prepare("
+            DELETE FROM trips_travelers WHERE Trips_TravelersID=$trips_travelersID
+        ");
+
+        $sth->execute();
     }
 }
